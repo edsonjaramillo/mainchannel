@@ -1,0 +1,17 @@
+.env.local
+.gitignore
+.eslintrc.json
+.prettierignore
+.prettierrc
+next-env.d.ts
+next.config.js
+README.md
+tsconfig.json
+package.json
+yarn.lock
+package-lock.json
+
+.next
+public
+node_modules
+/styles/main.css
