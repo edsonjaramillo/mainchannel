@@ -582,6 +582,8 @@ a {
 }
 
 .community__image {
+  width: 15rem;
+  height: 15rem;
   position: relative;
   aspect-ratio: 1/1;
 }
@@ -589,8 +591,7 @@ a {
 .communitygrid {
   display: flex;
   gap: 1rem;
-  height: min(50vw, 17rem);
-  overflow: auto;
+  overflow: scroll hidden;
 }
 
 .ourstory__description {

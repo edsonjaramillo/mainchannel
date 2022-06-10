@@ -1,6 +1,8 @@
 .community {
   &__image {
     // aspect-ratio: 16/9;
+    width: 15rem;
+    height: 15rem;
     position: relative;
     aspect-ratio: 1/1;
   }
@@ -9,6 +11,5 @@
 .communitygrid {
   display: flex;
   gap: 1rem;
-  height: min(calc(100vw - 50vw), 17rem);
-  overflow: auto;
+  overflow: scroll hidden;
 }
