@@ -1,0 +1,124 @@
+.section {
+  @include sectionpadding;
+  position: relative;
+  scroll-margin-top: 3rem;
+
+  &__contentgrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: clamp(2.5rem, 2.5vw, 3rem);
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    margin: auto auto auto auto;
+  }
+
+  &--bg--primary {
+    background-color: $brand-primary;
+  }
+
+  &--bg--secondary-100 {
+    background-color: $brand-secondary-100;
+  }
+
+  &--bg--secondary-200 {
+    background-color: $brand-secondary-200;
+  }
+
+  &--bg--secondary-300 {
+    background-color: $brand-secondary-300;
+  }
+
+  &--bg--secondary-400 {
+    background-color: $brand-secondary-400;
+  }
+
+  &--bg--grayscale-100 {
+    background-color: $grayscale-100;
+  }
+  &--bg--grayscale-200 {
+    background-color: $grayscale-200;
+  }
+  &--bg--grayscale-300 {
+    background-color: $grayscale-300;
+  }
+  &--bg--grayscale-400 {
+    background-color: $grayscale-400;
+  }
+  &--bg--grayscale-500 {
+    background-color: $grayscale-500;
+  }
+  &--bg--grayscale-600 {
+    background-color: $grayscale-600;
+  }
+  &--bg--grayscale-700 {
+    background-color: $grayscale-700;
+  }
+  &--bg--grayscale-800 {
+    background-color: $grayscale-800;
+  }
+  &--bg--grayscale-900 {
+    background-color: $grayscale-900;
+  }
+
+  &--text--primary {
+    color: $brand-primary;
+  }
+
+  &--text--secondary-100 {
+    color: $brand-secondary-100;
+  }
+
+  &--text--secondary-200 {
+    color: $brand-secondary-200;
+  }
+
+  &--text--secondary-300 {
+    color: $brand-secondary-300;
+  }
+
+  &--text--secondary-400 {
+    color: $brand-secondary-400;
+  }
+
+  &--text--grayscale-100 {
+    color: $grayscale-100;
+  }
+
+  &--text--grayscale-200 {
+    color: $grayscale-200;
+  }
+
+  &--text--grayscale-300 {
+    color: $grayscale-300;
+  }
+
+  &--text--grayscale-400 {
+    color: $grayscale-400;
+  }
+
+  &--text--grayscale-500 {
+    color: $grayscale-500;
+  }
+
+  &--text--grayscale-600 {
+    color: $grayscale-600;
+  }
+
+  &--text--grayscale-700 {
+    color: $grayscale-700;
+  }
+
+  &--text--grayscale-800 {
+    color: $grayscale-800;
+  }
+
+  &--text--grayscale-900 {
+    color: $grayscale-900;
+  }
+}

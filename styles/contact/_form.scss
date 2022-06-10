@@ -1,0 +1,216 @@
+.contact {
+  background-color: $grayscale-100;
+  margin: 2rem 0;
+
+  &__grid {
+    border-radius: $border-radius;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__information {
+    padding: 0 2rem 2rem 2rem;
+    // height: min-content;
+  }
+
+  &__form {
+    padding: 2rem;
+    background-color: $contact-form-color;
+  }
+
+  &__header {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__icon {
+    aspect-ratio: 1/1;
+    max-width: 20rem;
+    margin: 0rem auto;
+    height: fit-content;
+    padding: 0rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__listitem {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__checkmark {
+    max-width: 1.25rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  @include media('>=md') {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.form {
+  background-color: $grayscale-100;
+  position: relative;
+  background-color: $contact-form-color;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin: 0rem auto;
+  }
+
+  &__inputgroup {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.25rem;
+  }
+
+  &__errormessage {
+    color: $state-error;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    font-weight: 600;
+  }
+
+  &__radiogroup {
+    display: flex;
+    border-radius: $border-radius;
+    border: 1px solid $grayscale-500;
+    width: fit-content;
+  }
+
+  &__radioinput {
+    accent-color: $brand-primary;
+    background-color: $grayscale-100;
+    margin-right: 0.25rem;
+  }
+
+  &__radiolabel {
+    margin-right: 0.25rem;
+    font-weight: 400;
+    color: $grayscale-700;
+    padding: 0.5rem;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $brand-secondary-400;
+    font-weight: 600;
+  }
+
+  &__input {
+    appearance: none;
+    border-radius: $border-radius;
+    background-color: $contact-form-color;
+    @include input-size(1rem);
+    border: 1px solid $grayscale-500;
+    color: $grayscale-700;
+    font-family: $font-family;
+
+    &:focus {
+      background-color: lighten($color: $state-info, $amount: 35%);
+    }
+  }
+
+  &--textarea {
+    resize: vertical;
+    font-family: $font-family, sans-serif;
+  }
+
+  &__statusgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: min-content;
+    gap: 0.25rem;
+  }
+
+  &__iconblock {
+    margin: auto 0rem;
+  }
+
+  &__erroricon {
+    height: 0.625rem;
+    fill: $state-error;
+  }
+
+  &__error {
+    color: $state-error;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: max-content;
+  }
+
+  &__button {
+    appearance: none;
+    background-color: $brand-primary;
+    color: $grayscale-100;
+    font-weight: 600;
+    @include button-size(1rem);
+    border-radius: $border-radius;
+    justify-self: end;
+    width: fit-content;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-hover-primary;
+    }
+
+    &:focus {
+      background-color: $button-hover-primary;
+    }
+  }
+}
+
+.contactbox {
+  display: flex;
+  background-color: $brand-secondary-100;
+  border-radius: $border-radius;
+  padding: 1rem;
+  color: $grayscale-100;
+  align-items: center;
+  justify-content: center;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    margin: 2rem auto 2rem auto;
+  }
+
+  &__icon {
+    width: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  &__info {
+    white-space: pre-line;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  @include media('>lg') {
+    min-width: 17.5rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &__grid {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

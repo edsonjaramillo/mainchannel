@@ -1,0 +1,23 @@
+.employeesgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  @include media('>=md') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.employee {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &__image {
+    position: relative;
+    aspect-ratio: 3/4;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+}

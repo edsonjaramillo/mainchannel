@@ -1,0 +1,71 @@
+.cta {
+  height: clamp(60vh, 60vw, 80vh);
+  position: relative;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: $grayscale-100;
+    z-index: 1;
+    text-align: center;
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+    position: relative;
+    filter: brightness(0.38);
+  }
+
+  &__contentgrid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  &__header {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+  }
+
+  &__subheader {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    font-weight: 500;
+    color: $grayscale-300;
+  }
+
+  &__buttongrid {
+    display: flex;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    margin: auto;
+  }
+
+  &__button {
+    @include button-size(1rem);
+    min-width: 8.3rem;
+    border-radius: $border-radius;
+    font-weight: 500;
+    @include media('>sm+') {
+      @include button-size(1.25rem);
+      min-width: 10.375rem;
+    }
+    transition: background-color 0.3s ease;
+  }
+
+  &--primary {
+    background-color: $brand-primary;
+    &:hover {
+      background-color: darken($color: $brand-primary, $amount: 4%);
+    }
+  }
+  &--secondary {
+    background-color: $brand-secondary-400;
+    &:hover {
+      background-color: darken($color: $brand-secondary-400, $amount: 4%);
+    }
+  }
+}

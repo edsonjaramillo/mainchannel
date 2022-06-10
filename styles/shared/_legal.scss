@@ -1,0 +1,41 @@
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 0rem;
+
+  &__header {
+    font-weight: 700;
+    font-size: 1.75rem;
+  }
+
+  &__subheader {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  &__sub-subheader {
+    font-weight: 500;
+    font-size: 1.15rem;
+  }
+
+  &__strong {
+    font-weight: 600;
+  }
+
+  &__link {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__bullet {
+    margin-left: 3rem;
+    list-style-type: disc;
+  }
+}

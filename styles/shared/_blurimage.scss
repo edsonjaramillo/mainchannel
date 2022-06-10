@@ -1,0 +1,15 @@
+.blurimage {
+  &__transition {
+    transition: filter 1s ease, opacity 0.25s ease;
+  }
+
+  &--blur {
+    filter: blur(1.7rem);
+    opacity: 0.15;
+  }
+
+  &--noblur {
+    filter: blur(0);
+    opacity: 1;
+  }
+}

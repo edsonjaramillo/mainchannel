@@ -1,0 +1,120 @@
+$icon-size: 2.75rem;
+
+.navbar {
+  width: 100%;
+  background-color: $grayscale-100;
+  position: fixed;
+  top: 0;
+  padding: 0.5rem 0;
+  z-index: 99;
+
+  &__skipcontent {
+    position: absolute;
+    transform: translateY(-120%);
+    @include button-size(0.85rem);
+    background-color: $brand-secondary-400;
+    color: $grayscale-100;
+    z-index: 100;
+    border-radius: 0 0 $border-radius $border-radius;
+    margin-left: 0.5rem;
+    transition: all 0.25s linear;
+
+    &:focus {
+      transform: translateY(0%);
+      border: 2px solid $brand-primary;
+    }
+  }
+
+  &__logo {
+    margin: auto 0;
+    font-weight: 600;
+    color: $brand-primary;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+  }
+
+  &__hamburger,
+  &__exit {
+    margin: auto 0;
+    height: $icon-size;
+    width: $icon-size;
+    cursor: pointer;
+  }
+
+  &__hamburger {
+    background-color: rgba($color: $grayscale-100, $alpha: 0.1);
+    fill: $grayscale-800;
+  }
+
+  &__exit {
+    background-color: $grayscale-100;
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $grayscale-100;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    color: $brand-secondary-100;
+    font-size: clamp(2rem, 2vw, 4rem);
+    padding: 0.75rem 0rem 0.75rem 0rem;
+    margin-left: 2rem;
+
+    &:first-child {
+      margin-top: 3rem;
+    }
+  }
+
+  &__spacer {
+    height: 3.8rem;
+    width: 100%;
+    background-color: $grayscale-100;
+  }
+
+  @include media('>=md') {
+    &__hamburger,
+    &__exit {
+      display: none;
+    }
+
+    &__links {
+      position: static;
+      flex-direction: row;
+      width: fit-content;
+      margin: auto 0;
+      background-color: $grayscale-100;
+      gap: 2rem;
+    }
+
+    &__link {
+      font-size: 1.115rem;
+      margin-left: 0rem;
+      color: $brand-secondary-100;
+      font-weight: 600;
+      padding: 0.75rem 0rem 0.75rem 0rem;
+      transition: color 0.35s ease;
+      &:hover {
+        color: $brand-secondary-400;
+      }
+
+      &:first-child {
+        margin-top: 0rem;
+      }
+    }
+  }
+}

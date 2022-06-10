@@ -1,0 +1,7 @@
+.ourstory {
+  &__description {
+    color: $grayscale-100;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    text-align: center;
+  }
+}

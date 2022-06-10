@@ -1,0 +1,121 @@
+.productitem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__header {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 2.5vw, 3rem);
+    color: $brand-primary;
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+    font-weight: 600;
+    color: $brand-primary;
+  }
+
+  &__price {
+    color: $grayscale-600;
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 9/16;
+  }
+}
+
+.productsgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-bottom: 2rem;
+
+  @include media('>sm+') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media('>lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.productitemgrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 2rem 0rem;
+
+  @include media('>=md') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.product {
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 3/4;
+  }
+
+  &__name {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-weight: 700;
+    color: $brand-secondary-400;
+    line-height: 1;
+  }
+
+  &__description {
+    color: $grayscale-700;
+  }
+
+  &__price {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 0rem;
+    &:not(:first-child) {
+      border-top: 1px solid $grayscale-300;
+    }
+    &:last-child {
+      border-bottom: 1px solid $grayscale-300;
+    }
+  }
+
+  &__subheader {
+    font-size: clamp(1.05rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $brand-primary;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__tr {
+    &:nth-child(odd) {
+      //   background-color: $brand-secondary-300;
+      background-color: $grayscale-200;
+    }
+  }
+
+  &__th {
+    text-align: left;
+    color: $grayscale-700;
+    padding: 0.5rem;
+  }
+
+  @include media('>=md') {
+    &__name {
+      font-size: clamp(1.15rem, 2.5vw, 2.85rem);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.pageheader {
+  background-color: $grayscale-100;
+  @include sectionpadding;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 900;
+    color: $brand-primary;
+  }
+}
