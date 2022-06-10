@@ -6,14 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sass": "sass --watch --error-css --no-source-map styles/main.scss styles/main.css",
+    "format": "prettier --write .",
+    "postbuild": "next-sitemap --config next-sitemap-config.js"
   },
   "dependencies": {
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^5.5.3",
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.0.0",
     "next": "12.1.6",
+    "next-sitemap": "^1.6.203",
+    "plaiceholder": "^2.3.0",
+    "prop-types": "^15.5.4",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.22.1",
+    "react-icalendar-link": "^3.0.2",
+    "react-toastify": "^8.1.0",
+    "sharp": "^0.29.3"
   },
   "devDependencies": {
+    "@types/md5": "^2.3.2",
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
