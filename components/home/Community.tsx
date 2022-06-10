@@ -9,7 +9,7 @@ const Community = ({ images }: CommunityProps) => (
   <Section header='Community' textcolor='section--text--primary' color='section--bg--grayscale-100'>
     <div className='communitygrid'>
       {images.map((image) => (
-        <div className='community__image'>
+        <div key={image.id} className='community__image'>
           <BlurImage
             src={image.image.url}
             layout='fill'
