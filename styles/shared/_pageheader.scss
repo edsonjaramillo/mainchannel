@@ -1,12 +1,28 @@
 .pageheader {
   background-color: $grayscale-100;
   @include sectionpadding;
-  position: relative;
   overflow: hidden;
+
+  &__content {
+    position: relative;
+    isolation: isolate;
+  }
 
   &__title {
     font-size: clamp(2.5rem, 5vw, 3.75rem);
     font-weight: 900;
     color: $brand-primary;
+  }
+
+  &__logo {
+    opacity: 0.25;
+    position: absolute;
+    right: 3rem;
+    width: clamp(12rem, 25vw, 20rem);
+    // center it
+    top: 50%;
+    transform: translateY(-50%) rotate(25deg);
+    z-index: -1;
+
   }
 }
