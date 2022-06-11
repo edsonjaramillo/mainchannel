@@ -7,7 +7,7 @@ interface CommunityProps {
 
 const Community = ({ images }: CommunityProps) => (
   <Section header='Community' textcolor='section--text--primary' color='section--bg--grayscale-100'>
-    <div className='communitygrid'>
+    <div tabIndex={0} className='communitygrid'>
       {images.map((image) => (
         <div key={image.id} className='community__image'>
           <BlurImage
