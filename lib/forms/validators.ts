@@ -28,8 +28,6 @@ export const validationABC: RegisterOptions = {
     value: /^[0-9]+$/,
     message: 'Only numbers allowed.',
   },
-  minLength: { value: 10, message: 'Must be 10 numbers.' },
-  maxLength: { value: 10, message: 'Must be 10 numbers.' },
 };
 
 export const validation501C3: RegisterOptions = {
@@ -38,8 +36,8 @@ export const validation501C3: RegisterOptions = {
     value: /^[0-9]+$/,
     message: 'Only numbers allowed.',
   },
-  minLength: { value: 9, message: 'Must be 9 numbers.' },
-  maxLength: { value: 9, message: 'Must be 9 numbers.' },
+  minLength: { value: 9, message: 'Not enough numbers. Must be 9 numbers.' },
+  maxLength: { value: 9, message: 'Too many numbers. Must be 9 numbers.' },
 };
 
 export const validationDate: RegisterOptions = {
