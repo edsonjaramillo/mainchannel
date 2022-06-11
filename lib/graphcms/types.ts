@@ -63,8 +63,8 @@ export interface ProductType {
 
 export interface PriceType {
   singlePrice: number;
-  sixPackPrice: number;
-  kegPrice: number;
+  sixPackPrice?: number;
+  kegPrice?: number;
 }
 
 export interface DetailType {
