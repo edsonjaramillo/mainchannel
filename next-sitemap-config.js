@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://laundrybasketplus.com',
+  siteUrl: 'https://mainchannelbeer.com',
   generateRobotsTxt: true,
   changefreq: 'daily',
   robotsTxtOptions: {
