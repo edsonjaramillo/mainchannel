@@ -4,9 +4,9 @@ const PrivacyPage = () => (
   <>
     <HeadOpenGraph
       title='Privacy Policy'
-      description='Laundry Basket Plus Privacy Policy'
-      image='https://media.graphassets.com/rGIffdyDQHSL0ePjy3ti'
-      alt='Laundry Basket Plus logo'
+      description='Main Channel Privacy Policy'
+      image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+      alt='Main Channel Brewing logo'
     />
     <PrivacyPolicy
       name='Main Channel'

@@ -1,41 +1,50 @@
 import { navbarLinks } from '@/components/shared/Navbar';
 import { graphCMSClient } from '@/lib/graphcms/client';
 import { getSitemapLinks } from '@/lib/graphcms/queries';
-import { StoreType, ProductType } from '@/lib/graphcms/types';
-import { GetServerSideProps, GetStaticProps } from 'next';
+import { ProductType } from '@/lib/graphcms/types';
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
+import { HeadOpenGraph } from '@/components/index';
 
 interface SitemapPageProps {
   products: ProductType[];
 }
 
 const Sitemap = ({ products }: SitemapPageProps) => (
-  <div className='sitemap responsive-width-sitemap'>
-    <h1 className='sitemap__header'>Sitemap</h1>
-    <hr />
-    <div className='sitemap__grid'>
-      <SitemapSection header='Main'>
-        <SitemapLink slug='/' name='Homepage' />
-        {navbarLinks.map((link) => (
-          <SitemapLink key={link.name} slug={link.slug} name={link.name} />
-        ))}
-      </SitemapSection>
-      <SitemapSection header='Legal'>
-        <SitemapLink slug='/policy' name='Privacy Policy' />
-        <SitemapLink slug='/terms' name='Terms and Conditions' />
-      </SitemapSection>
-      <SitemapSection header='Resources'>
-        <SitemapLink slug='/donations' name='Donations' />
-      </SitemapSection>
-      {products.length > 0 && (
-        <SitemapSection header='Beers'>
-          {products.map((product) => (
-            <SitemapLink key={product.id} slug={`/ontap/${product.slug}`} name={product.name} />
+  <>
+    <HeadOpenGraph
+      title='Sitemap'
+      description='Main Channel Sitemap'
+      image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+      alt='Main Channel Brewing logo'
+    />
+    <div className='sitemap responsive-width-sitemap'>
+      <h1 className='sitemap__header'>Sitemap</h1>
+      <hr />
+      <div className='sitemap__grid'>
+        <SitemapSection header='Main'>
+          <SitemapLink slug='/' name='Homepage' />
+          {navbarLinks.map((link) => (
+            <SitemapLink key={link.name} slug={link.slug} name={link.name} />
           ))}
         </SitemapSection>
-      )}
+        <SitemapSection header='Legal'>
+          <SitemapLink slug='/policy' name='Privacy Policy' />
+          <SitemapLink slug='/terms' name='Terms and Conditions' />
+        </SitemapSection>
+        <SitemapSection header='Resources'>
+          <SitemapLink slug='/donations' name='Donations' />
+        </SitemapSection>
+        {products.length > 0 && (
+          <SitemapSection header='Beers'>
+            {products.map((product) => (
+              <SitemapLink key={product.id} slug={`/ontap/${product.slug}`} name={product.name} />
+            ))}
+          </SitemapSection>
+        )}
+      </div>
     </div>
-  </div>
+  </>
 );
 
 interface SitemapSectionProps {
@@ -61,7 +70,7 @@ const SitemapLink = ({ slug, name }: SitemapLinkProps) => (
   </Link>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { products } = await graphCMSClient.request(getSitemapLinks);
 
   return {

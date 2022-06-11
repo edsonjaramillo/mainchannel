@@ -5,8 +5,8 @@ const TermsPage = () => (
     <HeadOpenGraph
       title='Terms and Conditions'
       description='Main Channel Terms and Conditions'
-      image='https://media.graphassets.com/rGIffdyDQHSL0ePjy3ti'
-      alt='Main Channel logo'
+      image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+      alt='Main Channel Brewing logo'
     />
     <Terms
       name='Main Channel'

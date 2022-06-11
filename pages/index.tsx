@@ -14,10 +14,10 @@ const Home = ({ communities, ourStory, callToAction }: HomePageProps) => {
   return (
     <>
       <HeadOpenGraph
-        title='Home'
+        title='Homepage'
         description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
-        image='https'
-        alt='fgksdfndjsn'
+        image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+        alt='Main Channel Brewing logo'
       />
       <CTA {...callToAction} />
       <OurStory {...ourStory} />

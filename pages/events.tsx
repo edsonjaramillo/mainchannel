@@ -14,9 +14,9 @@ const EventsPage = ({ events }: EventsPageProps) => {
     <>
       <HeadOpenGraph
         title='Events'
-        description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
-        image='https'
-        alt='fgksdfndjsn'
+        description='Main Channel Events'
+        image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+        alt='Main Channel Brewing logo'
       />
       <PageHeader title='Events' />
       <div className='responsive-width'>

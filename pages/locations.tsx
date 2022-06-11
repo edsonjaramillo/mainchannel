@@ -3,7 +3,7 @@ import { StoreType } from '@/lib/graphcms/types';
 import { graphCMSClient } from '@/lib/graphcms/client';
 import { getStores } from '@/lib/graphcms/queries';
 import { GetServerSideProps } from 'next';
-import { PageHeader } from '../components';
+import { HeadOpenGraph, PageHeader } from '@/components/index';
 
 interface LocationsPageProps {
   stores: StoreType[];
@@ -11,7 +11,13 @@ interface LocationsPageProps {
 
 const LocationsPage = ({ stores }: LocationsPageProps) => (
   <>
-    <PageHeader title='Main Channel Locations' />
+    <HeadOpenGraph
+      title='Locations'
+      description='Main Channel Locations'
+      image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
+      alt='Main Channel Brewing logo'
+    />
+    <PageHeader title='Locations' />
     <section>
       {stores.map((store, i) => (
         <Store key={store.id} isOdd={i % 2 === 0} {...store} />
