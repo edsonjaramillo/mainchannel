@@ -362,7 +362,7 @@ a {
 .pageheader__logo {
   opacity: 0.25;
   position: absolute;
-  right: 3rem;
+  right: clamp(1rem, 2.5vw, 3rem);
   width: clamp(12rem, 25vw, 20rem);
   top: 50%;
   transform: translateY(-50%) rotate(25deg);
