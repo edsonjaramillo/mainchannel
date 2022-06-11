@@ -35,17 +35,18 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  &__listitem {
-    display: flex;
     gap: 1rem;
   }
 
+  &__listitem {
+    display: grid;
+    grid-template-columns: 1fr 12fr;
+    gap: 0.5rem;
+  }
+
   &__checkmark {
-    max-width: 1.25rem;
-    margin: 0 0 0.75rem 0;
+    width: 1.25rem;
+    height: fit-content;
   }
 
   &__link {
