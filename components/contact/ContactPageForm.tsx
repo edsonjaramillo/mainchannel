@@ -19,32 +19,29 @@ const ContactPageForm = () => {
 
     const templateParameters = {
       name: data.name,
-      organization: data.organization,
-      destination: data.destination,
       email: data.email,
       phone: formatter.formatPhoneNumber(data.phone),
-      choice: data.choice,
       message: data.message,
     };
 
     const { status } = await emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+      process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID as string,
       templateParameters,
       process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string
     );
 
     const { name } = data;
-    // if (status == 200) {
-    //   toastNotification(
-    //     ToastType.SUCCESS,
-    //     `Thank you ${name} for your message. We will get back to you as soon as possible.`,
-    //     5000
-    //   );
-    //   reset();
-    // } else {
-    //   toastNotification(ToastType.ERROR, 'Error occured. Try again.');
-    // }
+    if (status == 200) {
+      toastNotification(
+        ToastType.SUCCESS,
+        `Thank you ${name} for your message. We will get back to you as soon as possible.`,
+        5000
+      );
+      reset();
+    } else {
+      toastNotification(ToastType.ERROR, 'Error occured. Try again.');
+    }
   };
 
   const onError = () => toastNotification(ToastType.ERROR, 'Check input requirements.');

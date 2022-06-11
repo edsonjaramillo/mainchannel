@@ -3,12 +3,8 @@ import emailjs from 'emailjs-com';
 import { toastNotification, ToastType } from '@/lib/toastNotification';
 import { CustomInput } from '@/components/index';
 import { TextFieldInput, FormGroupLabel } from '@/components/index';
-import {
-  validationStandard,
-  validationPhone,
-  validationABC,
-  validation501C3,
-} from '@/lib/forms/validators';
+import { validationStandard, validationPhone } from '@/lib/forms/validators';
+import { validationABC, validation501C3 } from '@/lib/forms/validators';
 import { validationEmail, validationDate } from '@/lib/forms/validators';
 import { Formatter } from '@/lib/Formatter';
 import { DateManager } from '@/lib/DateManager';
@@ -25,19 +21,11 @@ const DonationPageForm = () => {
     const { name } = data;
     const formatter = new Formatter();
 
-    const templateParameters = {
-      name: data.name,
-      organization: data.organization,
-      destination: data.destination,
-      email: data.email,
-      phone: formatter.formatPhoneNumber(data.phone),
-      choice: data.choice,
-      message: data.message,
-    };
+    // console.log(`response: ${response}`);
 
     // const { status } = await emailjs.send(
     //   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-    //   process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+    //   process.env.NEXT_PUBLIC_EMAILJS_DONATIONS_TEMPLATE_ID as string,
     //   templateParameters,
     //   process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string
     // );
@@ -48,7 +36,7 @@ const DonationPageForm = () => {
     //     `Thank you ${name} for your message. We will get back to you as soon as possible.`,
     //     5000
     //   );
-    //   reset();
+    //   // reset();
     // } else {
     //   toastNotification(ToastType.ERROR, 'Error occured. Try again.');
     // }
@@ -56,7 +44,7 @@ const DonationPageForm = () => {
 
   const onError = () => toastNotification(ToastType.ERROR, 'Check input requirements.');
 
-  const minDate = new DateManager().dateAdjuster(14).toISOString().split('T')[0];
+  const minDate = new DateManager().dateAdjuster(14);
 
   return (
     <form className='form' onSubmit={handleSubmit(onSubmit, onError)}>
@@ -106,20 +94,20 @@ const DonationPageForm = () => {
           <CustomInput
             id='date'
             name='date'
-            type='date'
+            type='datetime-local'
             min={minDate}
             register={register}
             validation={validationDate}
           />
         </FormGroupLabel>
-        <FormGroupLabel name='abcnumber' label='ABC License #' errors={errors['abcnumber']}>
+        <FormGroupLabel name='abcnumber' label='ABC License' errors={errors['abcnumber']}>
           <CustomInput
             id='abcnumber'
             name='abcnumber'
             type='text'
             placeholder='0000000000'
-            register={register}
             validation={validationABC}
+            register={register}
           />
         </FormGroupLabel>
         <FormGroupLabel name='taxid' label='501(c)3 EIN' errors={errors['taxid']}>
@@ -128,17 +116,17 @@ const DonationPageForm = () => {
             name='taxid'
             type='text'
             placeholder='0000000000'
-            register={register}
             validation={validation501C3}
+            register={register}
           />
         </FormGroupLabel>
         <FormGroupLabel name='message' label='Message' errors={errors['message']}>
           <TextFieldInput
             id='message'
             name='message'
-            placeholder='Enter any extra details we should know about the request.'
-            rows={10}
             register={register}
+            placeholder='Enter any extra information you would like us to know about.'
+            rows={10}
           />
         </FormGroupLabel>
         <button type='submit' className='form__button'>
