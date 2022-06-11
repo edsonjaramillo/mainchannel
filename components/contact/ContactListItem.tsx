@@ -1,13 +1,26 @@
 interface ContactListItemProps {
-  message: string;
+  message?: string;
+  custom?: boolean;
+  children?: React.ReactNode;
 }
 
-const ContactListItem = ({ message }: ContactListItemProps) => (
-  <li className='contact__listitem'>
-    <CheckMarkIcon />
-    <span>{message}</span>
-  </li>
-);
+const ContactListItem = ({ message, custom, children }: ContactListItemProps) => {
+  if (custom) {
+    return (
+      <li className='contact__listitem'>
+        <CheckMarkIcon />
+        {children}
+      </li>
+    );
+  } else {
+    return (
+      <li className='contact__listitem'>
+        <CheckMarkIcon />
+        <span>{message}</span>
+      </li>
+    );
+  }
+};
 
 const CheckMarkIcon = () => (
   <div className='contact__checkmark'>
