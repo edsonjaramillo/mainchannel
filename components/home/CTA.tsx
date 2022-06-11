@@ -12,9 +12,13 @@ const CTA = ({ header, subheader, image, imageDescription }: CallToActionType) =
           <Link href='/ontap'>
             <a className='cta__button cta--primary'>View Beers</a>
           </Link>
-          <Link href='/events'>
-            <a className='cta__button cta--secondary'>View Events</a>
-          </Link>
+          <a
+            rel='noopener nofollow noreferrer external'
+            target='_blank'
+            href='https://ord.spoton.com/61081e4324b4c402ff9088fc#'
+            className='cta__button cta--secondary'>
+            Order Online
+          </a>
         </div>
       </div>
     </div>
