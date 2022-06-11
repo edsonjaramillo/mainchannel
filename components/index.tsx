@@ -5,6 +5,7 @@ export { default as Footer } from '@/components/shared/Footer';
 export { default as HeadOpenGraph } from '@/components/shared/HeadOpenGraph';
 export { default as BlurImage } from '@/components/shared/BlurImage';
 export { default as PageHeader } from '@/components/shared/PageHeader';
+export { default as Logo } from '@/components/shared/Logo';
 
 export { default as CTA } from '@/components/home/CTA';
 export { default as Community } from '@/components/home/Community';
