@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { navbarLinks } from '@/components/shared/Navbar';
 import { FacebookIcon, InstagramIcon } from '@/components/shared/FootrerSocialIcons';
 import { UntappdIcon, YelpIcon } from '@/components/shared/FootrerSocialIcons';
+import { Logo } from '@/components/index';
 
 const Footer = () => (
   <footer className='footer'>
@@ -31,9 +32,11 @@ const Footer = () => (
         <YelpIcon />
         <UntappdIcon />
       </div>
-      <div className='footer__logo'>
-        <span>Logo</span>
-      </div>
+      <Link href='/'>
+        <a className='footer__logo'>
+          <Logo />
+        </a>
+      </Link>
       <span className='footer__copyright'>&copy; {new Date().getFullYear()}</span>
     </div>
   </footer>

@@ -29,6 +29,8 @@ $icon-size: 2.75rem;
     margin: auto 0;
     font-weight: 600;
     color: $brand-primary;
+    width: 2.7rem;
+    aspect-ratio: 1/1;
   }
 
   &__content {
@@ -47,11 +49,12 @@ $icon-size: 2.75rem;
 
   &__hamburger {
     background-color: rgba($color: $grayscale-100, $alpha: 0.1);
-    fill: $grayscale-800;
+    fill: $brand-primary;
   }
-
+  
   &__exit {
     background-color: $grayscale-100;
+    fill: $brand-primary;
     position: absolute;
     right: 0;
     margin-right: 1rem;
@@ -70,10 +73,11 @@ $icon-size: 2.75rem;
   }
 
   &__link {
-    color: $brand-secondary-100;
+    color: $brand-primary;
     font-size: clamp(2rem, 2vw, 4rem);
     padding: 0.75rem 0rem 0.75rem 0rem;
     margin-left: 2rem;
+    font-weight: 600;
 
     &:first-child {
       margin-top: 3rem;

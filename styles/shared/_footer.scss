@@ -85,6 +85,13 @@
 
     &__logo {
       display: block;
+      width: 2rem;
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
     }
   }
 }

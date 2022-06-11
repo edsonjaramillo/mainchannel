@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
+import { Logo } from '@/components/index';
 
 interface PageLink {
   slug: string;
@@ -93,7 +94,7 @@ const Navbar = () => {
         <div className='navbar__content responsive-width'>
           <Link href='/'>
             <a title='Homepage' className='navbar__logo'>
-              Logo
+              <Logo />
             </a>
           </Link>
           <motion.div
