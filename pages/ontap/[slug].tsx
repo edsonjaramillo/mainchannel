@@ -27,8 +27,8 @@ const SingleBeerPage = ({ product }: SingleBeerPageProps) => (
         <p className='product__description'>{product.description}</p>
         <ProductSection title='Prices'>
           <PriceItem title='Single' price={product.prices.singlePrice} />
-          <PriceItem title='6 pack' price={product.prices.sixPackPrice} />
-          <PriceItem title='1/6 Keg' price={product.prices.kegPrice} />
+          {product.prices.sixPackPrice && <PriceItem title='Double' price={product.prices.sixPackPrice} />}
+          {product.prices.kegPrice && <PriceItem title='1/6 Keg' price={product.prices.kegPrice} />}
         </ProductSection>
         <ProductSection title='Details'>
           <ProductTable {...product.details} />
