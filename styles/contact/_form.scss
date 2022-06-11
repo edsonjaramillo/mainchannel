@@ -49,6 +49,11 @@
     margin: 0 0 0.75rem 0;
   }
 
+  &__link {
+    color: $brand-secondary-400;
+    text-decoration: underline;
+  }
+
   @include media('>=md') {
     &__grid {
       grid-template-columns: repeat(2, 1fr);

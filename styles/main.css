@@ -134,6 +134,8 @@ a {
   margin: auto 0;
   font-weight: 600;
   color: #123b2d;
+  width: 2.7rem;
+  aspect-ratio: 1/1;
 }
 .navbar__content {
   display: flex;
@@ -148,10 +150,11 @@ a {
 }
 .navbar__hamburger {
   background-color: rgba(255, 255, 255, 0.1);
-  fill: #1f2937;
+  fill: #123b2d;
 }
 .navbar__exit {
   background-color: #ffffff;
+  fill: #123b2d;
   position: absolute;
   right: 0;
   margin-right: 1rem;
@@ -168,10 +171,11 @@ a {
   flex-direction: column;
 }
 .navbar__link {
-  color: #262626;
+  color: #123b2d;
   font-size: clamp(2rem, 2vw, 4rem);
   padding: 0.75rem 0rem 0.75rem 0rem;
   margin-left: 2rem;
+  font-weight: 600;
 }
 .navbar__link:first-child {
   margin-top: 3rem;
@@ -280,6 +284,12 @@ a {
   }
   .footer__logo {
     display: block;
+    width: 2rem;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+  }
+  .footer__logo:hover {
+    filter: grayscale(0%);
   }
 }
 
@@ -333,7 +343,6 @@ a {
 .pageheader {
   background-color: #ffffff;
   padding: 3rem 0rem;
-  position: relative;
   overflow: hidden;
 }
 @media (min-width: 768px) {
@@ -341,10 +350,23 @@ a {
     padding: 6rem 0rem;
   }
 }
+.pageheader__content {
+  position: relative;
+  isolation: isolate;
+}
 .pageheader__title {
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 900;
   color: #123b2d;
+}
+.pageheader__logo {
+  opacity: 0.25;
+  position: absolute;
+  right: 3rem;
+  width: clamp(12rem, 25vw, 20rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(25deg);
+  z-index: -1;
 }
 
 .section {
@@ -582,10 +604,9 @@ a {
 }
 
 .community__image {
-  width: 15rem;
   height: 15rem;
   position: relative;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
 }
 
 .communitygrid {
@@ -931,6 +952,10 @@ a {
 .contact__checkmark {
   max-width: 1.25rem;
   margin: 0 0 0.75rem 0;
+}
+.contact__link {
+  color: #6c0303;
+  text-decoration: underline;
 }
 @media (min-width: 768px) {
   .contact__grid {
