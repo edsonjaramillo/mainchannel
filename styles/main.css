@@ -874,7 +874,7 @@ a {
   gap: 0.25rem;
 }
 .event--left {
-  width: clamp(6rem, 20vw, 8rem);
+  width: 8rem;
 }
 .event--middle {
   text-overflow: ellipsis;
@@ -922,10 +922,10 @@ a {
   grid-template-columns: repeat(1, 1fr);
 }
 .contact__information {
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 1rem 1rem 1rem;
 }
 .contact__form {
-  padding: 2rem;
+  padding: clamp(1rem, 2.5vw, 2rem);
   background-color: #fafafa;
 }
 .contact__header {
@@ -960,6 +960,9 @@ a {
 @media (min-width: 768px) {
   .contact__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .contact__information {
+    padding: 0 2rem 2rem 2rem;
   }
 }
 

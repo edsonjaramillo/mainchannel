@@ -10,12 +10,11 @@
   }
 
   &__information {
-    padding: 0 2rem 2rem 2rem;
-    // height: min-content;
+    padding: 0 1rem 1rem 1rem;
   }
 
   &__form {
-    padding: 2rem;
+    padding: clamp(1rem, 2.5vw, 2rem);
     background-color: $contact-form-color;
   }
 
@@ -57,6 +56,10 @@
   @include media('>=md') {
     &__grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__information {
+      padding: 0 2rem 2rem 2rem;
     }
   }
 }
