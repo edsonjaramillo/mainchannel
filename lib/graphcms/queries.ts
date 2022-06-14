@@ -10,7 +10,7 @@ export const getHomepageProps = gql`
       }
       imageDescription
     }
-    communities {
+    communities(orderBy: sort_ASC) {
       id
       image {
         url
