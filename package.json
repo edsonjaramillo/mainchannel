@@ -18,8 +18,7 @@
     "graphql-request": "^4.0.0",
     "next": "12.1.6",
     "next-sitemap": "^1.6.203",
-    "plaiceholder": "^2.3.0",
-    "prop-types": "^15.5.4",
+    "prop-types": "^15.8.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.22.1",
@@ -28,7 +27,6 @@
     "sharp": "^0.29.3"
   },
   "devDependencies": {
-    "@types/md5": "^2.3.2",
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
