@@ -1,7 +1,6 @@
 import { AddressManager } from '@/lib/AddressManager';
 import { EventType } from '@/lib/graphcms/types';
 import Head from 'next/head';
-import Script from 'next/script';
 
 const EventJSONLD = (event: EventType) => {
   const { locationName, address } = new AddressManager().getLocationJSONLD(event);
@@ -14,7 +13,7 @@ const EventJSONLD = (event: EventType) => {
     endDate: event.endTime,
     description: event.description,
     url: `https://www.mainchannelbrewing.com/events#${event.id}`,
-    // image: 'https://static.tickpick.com/performers/los-angeles-dodgers.jpg',
+    image: 'https://media.graphassets.com/AgWdksMVQQqEfEoz5kRQ',
     location: {
       '@type': 'EventVenue',
       name: locationName,
