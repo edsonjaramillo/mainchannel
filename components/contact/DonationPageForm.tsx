@@ -21,25 +21,34 @@ const DonationPageForm = () => {
     const { name } = data;
     const formatter = new Formatter();
 
-    // console.log(`response: ${response}`);
+    const templateParameters = {
+      name: data.name,
+      email: data.email,
+      phone: formatter.formatPhoneNumber(data.phone),
+      location: data.location,
+      date: formatter.formatDateTime(data.date),
+      abcnumber: data.abcnumber,
+      taxid: formatter.formatEIN(data.taxid),
+      message: data.message,
+    };
 
-    // const { status } = await emailjs.send(
-    //   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-    //   process.env.NEXT_PUBLIC_EMAILJS_DONATIONS_TEMPLATE_ID as string,
-    //   templateParameters,
-    //   process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string
-    // );
+    const { status } = await emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+      process.env.NEXT_PUBLIC_EMAILJS_DONATIONS_TEMPLATE_ID as string,
+      templateParameters,
+      process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string
+    );
 
-    // if (status == 200) {
-    //   toastNotification(
-    //     ToastType.SUCCESS,
-    //     `Thank you ${name} for your message. We will get back to you as soon as possible.`,
-    //     5000
-    //   );
-    //   // reset();
-    // } else {
-    //   toastNotification(ToastType.ERROR, 'Error occured. Try again.');
-    // }
+    if (status == 200) {
+      toastNotification(
+        ToastType.SUCCESS,
+        `Thank you ${name} for your message. We will get back to you as soon as possible.`,
+        5000
+      );
+      reset();
+    } else {
+      toastNotification(ToastType.ERROR, 'Error occured. Try again.');
+    }
   };
 
   const onError = () => toastNotification(ToastType.ERROR, 'Check input requirements.');
