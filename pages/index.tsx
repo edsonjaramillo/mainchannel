@@ -17,7 +17,7 @@ const Home = ({ communities, ourStory, callToAction }: HomePageProps) => {
         title='Homepage'
         description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
         image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-        alt='Main Channel Brewing logo'
+        alt='Main Channel Brewing Company logo'
       />
       <CTA {...callToAction} />
       <OurStory {...ourStory} />

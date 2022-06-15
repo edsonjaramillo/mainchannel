@@ -10,11 +10,11 @@ const ProductJSONLD = (product: ProductType) => {
     description: product.description,
     brand: {
       '@type': 'Organization',
-      name: 'Main Channel Brewing',
+      name: 'Main Channel Brewing Company',
     },
     offers: {
       '@type': 'Offer',
-      url: `https://www.mainchannelbeer.com/ontap/${product.slug}`,
+      url: `https://www.mainchannelbrewing.com/ontap/${product.slug}`,
       priceCurrency: 'USD',
       price: product.prices.singlePrice,
       availability: 'https://schema.org/InStock',

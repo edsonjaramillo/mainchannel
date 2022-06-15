@@ -6,13 +6,13 @@ const TermsPage = () => (
       title='Terms and Conditions'
       description='Main Channel Terms and Conditions'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <Terms
       name='Main Channel'
       email='mainchannelbeer@gmail.com'
       phone='(256) 960-5070'
-      website='https://mainchannelbeer.com'
+      website='https://www.mainchannelbrewing.com'
     />
   </>
 );

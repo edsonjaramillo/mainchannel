@@ -1,12 +1,12 @@
-import { ContactPageForm, ContactListItem, ContactIcon, HeadOpenGraph } from '@/components/index';
+import { ContactPageForm, ContactIcon, HeadOpenGraph } from '@/components/index';
 
 const ContactPage = () => (
   <>
     <HeadOpenGraph
       title='Contact Us'
-      description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
+      description='Contact Main Channel Brewing Company for information about our events, services, and locations.'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <div className='contact'>
       <div className='contact__grid responsive-width'>

@@ -22,9 +22,9 @@ const HeadOpenGraph = ({
   robots = 'index, follow',
 }: HeadOpenGraphProps) => {
   const { asPath } = useRouter();
-  const url = 'https://mainchannelbrewing.com';
+  const url = 'https://www.mainchannelbrewing.com';
   const cannonicalURL = url + asPath;
-  const siteTitle = `${title} | Main Channel Brewing`;
+  const siteTitle = `${title} | Main Channel Brewing Company`;
 
   const websiteJson = {
     '@context': 'http://schema.org',
@@ -32,7 +32,7 @@ const HeadOpenGraph = ({
     url: cannonicalURL,
     name: siteTitle,
     description: description,
-    publisher: 'Main Channel Brewing',
+    publisher: 'Main Channel Brewing Company',
   };
 
   return (

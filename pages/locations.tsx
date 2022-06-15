@@ -15,7 +15,7 @@ const LocationsPage = ({ stores }: LocationsPageProps) => (
       title='Locations'
       description='Main Channel Locations'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <PageHeader title='Locations' />
     <section>

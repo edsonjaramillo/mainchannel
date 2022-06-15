@@ -16,7 +16,7 @@ const Sitemap = ({ products }: SitemapPageProps) => (
       title='Sitemap'
       description='Main Channel Sitemap'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <div className='sitemap responsive-width-sitemap'>
       <h1 className='sitemap__header'>Sitemap</h1>

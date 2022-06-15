@@ -16,7 +16,7 @@ const BeersPage = ({ yearRoundBeers, seasonalBeers, upComingBeers }: BeersPagePr
       title='On Tap'
       description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <PageHeader title='On Tap' />
     <ProductGrid header='All Year' products={yearRoundBeers} />

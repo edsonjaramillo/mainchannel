@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://mainchannelbeer.com',
+  siteUrl: 'https://www.mainchannelbrewing.com',
   generateRobotsTxt: true,
   changefreq: 'daily',
   robotsTxtOptions: {

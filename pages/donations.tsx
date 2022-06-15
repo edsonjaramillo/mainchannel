@@ -4,9 +4,9 @@ const DonationsPage = () => (
   <>
     <HeadOpenGraph
       title='Donations'
-      description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
+      description='Contact Main Channel Brewing Company for more information about our donations program.'
       image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
-      alt='Main Channel Brewing logo'
+      alt='Main Channel Brewing Company logo'
     />
     <div className='contact'>
       <div className='contact__grid responsive-width'>
