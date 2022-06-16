@@ -42,8 +42,8 @@ const DonationPageForm = () => {
     if (status == 200) {
       toastNotification(
         ToastType.SUCCESS,
-        `Thank you ${name} for your message. We will get back to you as soon as possible.`,
-        5000
+        `Thank you ${name} for your donation request. Please remember to send us an image copy of your 501(c)3 and ABC License # to mainchannelbeer@gmail.com`,
+        7000
       );
       reset();
     } else {
