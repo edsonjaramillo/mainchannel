@@ -22,7 +22,7 @@ const DonationsPage = () => (
               <span>
                 After you submit your application send a photo copy of your ABC License and 501(c)3
                 form to{' '}
-                <a className='contact__link' href='mailto:mainchannelbeer@gmail.com'>
+                <a className='contact__link' href='mailto:mainchannelbeer@gmail.com?subject=Copies of 501(c)3 Tax Form and ABC License Form'>
                   mainchannelbeer@gmail.com
                 </a>
               </span>
