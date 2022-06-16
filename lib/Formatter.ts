@@ -46,7 +46,7 @@ export class Formatter {
     const areaCode = phoneNumber.slice(0, 3);
     const prefix = phoneNumber.slice(3, 6);
     const lineNumber = phoneNumber.slice(6, 10);
-    return `Phone: (${areaCode}) ${prefix}-${lineNumber}`;
+    return `(${areaCode}) ${prefix}-${lineNumber}`;
   };
 
   formatEIN = (ein: string): string => {
