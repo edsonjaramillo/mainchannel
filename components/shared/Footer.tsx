@@ -23,6 +23,10 @@ const Footer = () => (
       </FooterSection>
       <FooterSection header='Resources'>
         <InternalFooterLink href='/donations' label='Donations' />
+        <ExternalFooterLink
+          href='https://ord.spoton.com/61081e4324b4c402ff9088fc#'
+          label='Order Online'
+        />
       </FooterSection>
     </div>
     <div className='footer__bottomgrid responsive-width'>
