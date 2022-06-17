@@ -14,8 +14,8 @@ const Home = ({ communities, ourStory, callToAction }: HomePageProps) => {
   return (
     <>
       <HeadOpenGraph
-        title='Homepage'
-        description='fsdnfoksdffdsfdsfsdfsdfsdfdsnfkjdsn'
+        title={callToAction.header}
+        description={ourStory.description}
         image='https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'
         alt='Main Channel Brewing Company logo'
       />
