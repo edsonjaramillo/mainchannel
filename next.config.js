@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos', 'media.graphassets.com'],
-  }
+    domains: ['media.graphassets.com'],
+  },
+  optimizeFonts: false,
 }
 
 module.exports = nextConfig
