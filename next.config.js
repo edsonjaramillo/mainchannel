@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     domains: ['media.graphassets.com'],
   },
-  optimizeFonts: false,
+  optimizeFonts: true,
 }
 
 module.exports = nextConfig
