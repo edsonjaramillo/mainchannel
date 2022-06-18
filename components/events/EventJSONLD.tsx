@@ -12,8 +12,14 @@ const EventJSONLD = (event: EventType) => {
     startDate: event.startTime,
     endDate: event.endTime,
     description: event.description,
-    url: `https://www.mainchannelbrewing.com/events#${event.id}`,
+    url: `https://mainchannelbrewing.com/events#${event.id}`,
     image: 'https://media.graphassets.com/AgWdksMVQQqEfEoz5kRQ',
+    organizer: {
+      '@type': 'Organization',
+      name: 'Main Channel Brewing Company',
+      url: 'https://mainchannelbrewing.com',
+      logo: 'https://media.graphassets.com/AgWdksMVQQqEfEoz5kRQ',
+    },
     location: {
       '@type': 'EventVenue',
       name: locationName,
@@ -27,12 +33,6 @@ const EventJSONLD = (event: EventType) => {
       },
     },
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    organizer: {
-      '@type': 'Organization',
-      name: 'Main Channel Brewing Company',
-      url: 'https://www.mainchannelbrewing.com',
-      logo: 'https://media.graphassets.com/AgWdksMVQQqEfEoz5kRQ',
-    },
     eventStatus: 'https://schema.org/EventScheduled',
   };
 
