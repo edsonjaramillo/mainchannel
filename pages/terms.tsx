@@ -12,7 +12,7 @@ const TermsPage = () => (
       name='Main Channel'
       email='mainchannelbeer@gmail.com'
       phone='(256) 960-5070'
-      website='https://www.mainchannelbrewing.com'
+      website='https://mainchannelbrewing.com'
     />
   </>
 );

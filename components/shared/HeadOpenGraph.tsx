@@ -22,7 +22,7 @@ const HeadOpenGraph = ({
   robots = 'index, follow',
 }: HeadOpenGraphProps) => {
   const { asPath } = useRouter();
-  const url = 'https://www.mainchannelbrewing.com';
+  const url = 'https://mainchannelbrewing.com';
   const cannonicalURL = url + asPath;
   const siteTitle = `${title} | Main Channel Brewing Company`;
 

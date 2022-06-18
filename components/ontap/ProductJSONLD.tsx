@@ -14,7 +14,7 @@ const ProductJSONLD = (product: ProductType) => {
     },
     offers: {
       '@type': 'Offer',
-      url: `https://www.mainchannelbrewing.com/ontap/${product.slug}`,
+      url: `https://mainchannelbrewing.com/ontap/${product.slug}`,
       priceCurrency: 'USD',
       price: product.prices.singlePrice,
       availability: 'https://schema.org/InStock',

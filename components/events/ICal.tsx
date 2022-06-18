@@ -12,7 +12,7 @@ const ICal = (event: EventType) => {
     startTime: event.startTime,
     endTime: event.endTime,
     location: location,
-    url: `https://www.mainchannelbrewing.com/events#${event.id}`,
+    url: `https://mainchannelbrewing.com/events#${event.id}`,
   };
 
   return (
