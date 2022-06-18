@@ -19,11 +19,19 @@ const EventJSONLD = (event: EventType) => {
       name: locationName,
       address: {
         '@type': 'PostalAddress',
+        streetAddress: address.street,
         addressLocality: address.city,
         addressRegion: address.state,
         postalCode: address.zipcode,
         addressCountry: 'US',
       },
+    },
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    organizer: {
+      '@type': 'Organization',
+      name: 'Main Channel Brewing Company',
+      url: 'https://www.mainchannelbrewing.com',
+      logo: 'https://media.graphassets.com/AgWdksMVQQqEfEoz5kRQ',
     },
     eventStatus: 'https://schema.org/EventScheduled',
   };
