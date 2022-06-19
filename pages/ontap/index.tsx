@@ -19,8 +19,8 @@ const BeersPage = ({ yearRoundBeers, seasonalBeers, upComingBeers }: BeersPagePr
       alt='Main Channel Brewing Company logo'
     />
     <PageHeader title='On Tap' />
-    <ProductGrid header='All Year' products={yearRoundBeers} />
-    <ProductGrid header='Seasonal' products={seasonalBeers} />
+    {yearRoundBeers.length > 0 && <ProductGrid header='Year Round' products={yearRoundBeers} />}
+    {seasonalBeers.length > 0 && <ProductGrid header='Seasonal' products={seasonalBeers} />}
     {upComingBeers.length > 0 && <ProductGrid header='Coming Soon' products={upComingBeers} />}
   </>
 );

@@ -21,7 +21,7 @@ const Home = ({ communities, ourStory, callToAction }: HomePageProps) => {
       />
       <CTA {...callToAction} />
       <OurStory {...ourStory} />
-      <Community images={communities} />
+      { communities.length > 0 && <Community images={communities} />}
     </>
   );
 };
