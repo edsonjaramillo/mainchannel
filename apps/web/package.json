@@ -1,0 +1,46 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "analyze": "cross-env ANALYZE=true next build",
+    "build": "next build",
+    "clean": "rm -rf .next",
+    "dev": "next dev",
+    "lighthouse:dev": "lighthouse http://localhost:3000 --view",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.7.17",
+    "@hookform/resolvers": "3.3.1",
+    "@plaiceholder/next": "3.0.0",
+    "js-cookie": "3.0.5",
+    "next": "13.5.4",
+    "plaiceholder": "3.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.45.4",
+    "react-hot-toast": "2.4.1",
+    "ui": "workspace:*",
+    "utils": "workspace:*",
+    "valibot": "0.17.0",
+    "zustand": "4.4.1"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
+    "@types/js-cookie": "3.0.4",
+    "@types/node": "20.5.6",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "config": "workspace:*",
+    "cross-env": "^7.0.3",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "lighthouse": "11.1.0",
+    "postcss": "8.4.28",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2"
+  }
+}
