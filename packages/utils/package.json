@@ -1,0 +1,17 @@
+{
+  "name": "utils",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "next": "13.5.4",
+    "plaiceholder": "3.0.0",
+    "valibot": "0.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.7.0",
+    "tsconfig": "workspace:*",
+    "typescript": "5.2.2"
+  }
+}

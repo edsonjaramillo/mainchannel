@@ -1,0 +1,5 @@
+{
+  "extends": "tsconfig/standard.json",
+  "compilerOptions": {},
+  "exclude": ["dist", "build", "node_modules"]
+}
