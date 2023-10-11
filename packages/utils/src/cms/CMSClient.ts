@@ -1,6 +1,6 @@
 import { Blur } from '../blur';
 import { ENV } from '../env';
-import type { CallToAction, Employee, Event, Product, Store } from '../types';
+import type { CallToAction, Employee, Event, Product, Store, OurStory } from '../types';
 import { GQLRequest } from './GQLRequest';
 import { Query } from './Query';
 
@@ -14,14 +14,19 @@ export class CMSClient {
     this.gql = new GQLRequest(ENV.HYGRAPH_ENDPOINT);
   }
 
-  async getEvents() {
-    const { events } = await this.gql.request<Res<Event[]>>(Query.getEvents);
+  async getEvents(now: string) {
+    const { events } = await this.gql.request<Res<Event[]>>(Query.getEvents, { variables: { now } });
     return events;
   }
 
   async getCTA() {
     const { callToActions } = await this.gql.request<Res<CallToAction[]>>(Query.getCTA);
     return callToActions.at(-1)!;
+  }
+
+  async getOurStory() {
+    const { ourStories } = await this.gql.request<Res<OurStory[]>>(Query.getOurStory);
+    return ourStories.at(-1)!;
   }
 
   async getBeers() {
@@ -64,4 +69,20 @@ export class CMSClient {
 
     return employees;
   }
+
+  async createEvent(event: createEventVariables) {
+    const { createEvent } = await this.gql.request<Res<Event>>(Query.createEvent, {
+      variables: {
+        title: event.title,
+        startTime: event.startTime,
+        endTime: event.endTime,
+        storeId: event.storeId,
+      },
+    });
+    return createEvent;
+  }
 }
+
+export type createEventVariables = Pick<Event, 'title' | 'startTime' | 'endTime'> & {
+  storeId: string;
+};

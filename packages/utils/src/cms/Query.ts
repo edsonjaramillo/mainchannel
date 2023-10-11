@@ -13,6 +13,14 @@ export class Query {
     }
   `;
 
+  static getOurStory = /* GraphQL */ `
+    query GetOurStory {
+      ourStories {
+        id
+        description
+      }
+    }
+  `;
   static getStores = /* GraphQL */ `
     query GetStores {
       stores {
@@ -118,8 +126,8 @@ export class Query {
   `;
 
   static getEvents = /* GraphQL */ `
-    query GetEvents {
-      events(orderBy: startTime_ASC) {
+    query GetEvents($now: DateTime!) {
+      events(orderBy: startTime_ASC, where: { startTime_gte: $now }) {
         id
         title
         startTime
@@ -155,6 +163,22 @@ export class Query {
           width
           height
         }
+      }
+    }
+  `;
+
+  static createEvent = /* GraphQL */ `
+    mutation CreateEvent($title: String!, $startTime: DateTime!, $endTime: DateTime!, $storeId: ID!) {
+      createEvent(
+        data: {
+          title: $title
+          startTime: $startTime
+          endTime: $endTime
+          isExternal: false
+          store: { connect: { id: $storeId } }
+        }
+      ) {
+        id
       }
     }
   `;
