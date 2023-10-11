@@ -2,10 +2,9 @@ export type Event = {
   id: string;
   store: Store;
   title: string;
-  description: string;
   startTime: string;
   endTime: string;
-  isExternal: boolean;
+  isExternal?: boolean;
   extLocation?: string;
   extAddress?: Address;
 };
@@ -76,7 +75,7 @@ export type Employee = {
   sort: number;
 };
 
-export type OurStore = {
+export type OurStory = {
   description: string;
 };
 
