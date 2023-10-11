@@ -17,7 +17,7 @@ export function Modal() {
 
   return (
     <div className={modalClass} aria-hidden={!modalIsOpen}>
-      <div className="relative mx-auto max-w-[90%] rounded border border-grayscale-400 bg-grayscale-100 p-6 lg:max-w-xl">
+      <div className="relative mx-auto min-w-[20rem] max-w-[90%] rounded border border-grayscale-400 bg-grayscale-100 p-6 lg:max-w-xl">
         <ExitModal />
         {component}
       </div>
@@ -48,5 +48,14 @@ type ModalImageProps = {
 };
 
 export function ModalImage({ image }: ModalImageProps) {
-  return <Image src={image.url} alt={image.alt} width={image.width} height={image.height} />;
+  return (
+    <Image
+      src={image.url}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      blurDataURL={image.blurhash}
+      placeholder="blur"
+    />
+  );
 }
