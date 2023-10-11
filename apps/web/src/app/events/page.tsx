@@ -3,10 +3,12 @@ import { CMSClient } from 'utils/src/cms/CMSClient';
 
 import EventCard from '../../components/events/EventCard';
 
-export const revlalidate = 60 * 60 * 24;
+export const revlalidate = 60 * 60 * 12;
 
 export default async function EventsPage() {
-  const events = await new CMSClient().getEvents();
+  const now = new Date().toISOString();
+  const events = await new CMSClient().getEvents(now);
+
   return (
     <>
       <Section header="Events" headerAs="h1" id="events">
