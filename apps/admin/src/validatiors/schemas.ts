@@ -1,1 +1,7 @@
-import { email, maxLength, minLength, object, string } from 'valibot';
+import { object, string } from 'valibot';
+
+export const addEventSchema = object({
+  startTime: string(),
+  endTime: string(),
+  storeId: string(),
+});
