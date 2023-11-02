@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "dependencies": {
-    "next": "13.5.4",
+    "next": "14.0.1",
     "plaiceholder": "3.0.0",
     "valibot": "0.17.0"
   },
