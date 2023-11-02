@@ -37,9 +37,7 @@ export class CMSClient {
   }
 
   async getBeers() {
-    const { products } = await this.gql.request<Res<Product[]>>(Query.getBeers, {
-      // cache: 'no-cache',
-    });
+    const { products } = await this.gql.request<Res<Product[]>>(Query.getBeers);
 
     for (let i = 0; i < products.length; i++) {
       if (!products[i].image.blurDataUrl) {
@@ -54,7 +52,6 @@ export class CMSClient {
   async getBeer(slug: string) {
     const { product } = await this.gql.request<Res<Product>>(Query.getBeerBySlug, {
       variables: { slug },
-      // cache: 'no-cache',
     });
 
     if (!product.image.blurDataUrl) {
@@ -66,9 +63,7 @@ export class CMSClient {
   }
 
   async getStores() {
-    const { stores } = await this.gql.request<Res<Store[]>>(Query.getStores, {
-      // cache: 'no-cache',
-    });
+    const { stores } = await this.gql.request<Res<Store[]>>(Query.getStores);
 
     for (let i = 0; i < stores.length; i++) {
       if (!stores[i].storeImages.firstImage.blurDataUrl) {
@@ -96,7 +91,7 @@ export class CMSClient {
   }
 
   async getEmployees() {
-    const { employees } = await this.gql.request<Res<Employee[]>>(Query.getEmployees, { cache: 'no-cache' });
+    const { employees } = await this.gql.request<Res<Employee[]>>(Query.getEmployees);
 
     for (let i = 0; i < employees.length; i++) {
       if (!employees[i].image.blurDataUrl) {

@@ -10,8 +10,13 @@ export class GQLRequest {
 
   async request<T>(query: string, opts?: GQLOptions): Promise<T> {
     const variables = opts?.variables || {};
-    const cacheOptions = opts?.cache || 'default';
-    const cache = ENV.NODE_ENV === 'development' ? 'no-cache' : cacheOptions;
+    const hasCacheRequirement = opts?.cache;
+    let cache: RequestCache | null;
+    if (hasCacheRequirement) {
+      cache = opts.cache as RequestCache;
+    } else {
+      ENV.BUILDING ? (cache = 'force-cache') : (cache = 'default');
+    }
 
     const response = await fetch(this.endpoint, {
       method: 'POST',
