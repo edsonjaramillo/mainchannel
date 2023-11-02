@@ -34,7 +34,15 @@ export default function CTA({ cta }: CTAProps) {
         </div>
       </div>
       <div className="relative min-h-[15rem] overflow-hidden">
-        <Image src={cta.image.url} alt={cta.image.alt} fill className="object-cover" priority />
+        <Image
+          src={cta.image.url}
+          alt={cta.image.alt}
+          fill
+          className="object-cover"
+          priority
+          placeholder="blur"
+          blurDataURL={cta.image.blurDataUrl}
+        />
       </div>
     </div>
   );
