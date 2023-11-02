@@ -12,7 +12,7 @@ export default async function LocationPage() {
   return (
     <>
       <Section header="Locations" headerAs="h1">
-        <div className="flex flex-col gap-32">
+        <div className="flex flex-col">
           {stores.map((store) => (
             <StoreCard key={store.id} store={store} />
           ))}
