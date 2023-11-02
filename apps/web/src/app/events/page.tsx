@@ -1,5 +1,11 @@
 import Events from '../../components/events/Events';
+import PageHeader from '../../components/shared/PageHeader';
 
 export default async function EventsPage() {
-  return <Events />;
+  return (
+    <>
+      <PageHeader text="Events" />
+      <Events />
+    </>
+  );
 }

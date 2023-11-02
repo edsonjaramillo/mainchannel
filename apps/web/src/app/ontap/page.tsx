@@ -3,6 +3,7 @@ import { CMSClient } from 'utils/src/cms/CMSClient';
 import type { Product } from 'utils/src/types';
 
 import BeerCard from '../../components/ontap/BeerCard';
+import PageHeader from '../../components/shared/PageHeader';
 
 export default async function Page() {
   const beers = await new CMSClient().getBeers();
@@ -10,6 +11,7 @@ export default async function Page() {
 
   return (
     <>
+      <PageHeader text="On Tap" />
       <Section headerAs="h2" header="Year Round">
         <div className="grid grid-cols-fluid gap-8">
           {yearRoundBeers.map((beer) => (

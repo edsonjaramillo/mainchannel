@@ -1,8 +1,10 @@
+import { Responsive } from 'ui/src/Responsive';
 import { Section } from 'ui/src/Section';
 import { CMSClient } from 'utils/src/cms/CMSClient';
 
 import EmployeeCard from '../../components/locations/EmployeeCard';
 import StoreCard from '../../components/locations/StoreCard';
+import PageHeader from '../../components/shared/PageHeader';
 
 export default async function LocationPage() {
   const client = new CMSClient();
@@ -11,13 +13,14 @@ export default async function LocationPage() {
 
   return (
     <>
-      <Section header="Locations" headerAs="h1">
+      <PageHeader text="Locations" />
+      <Responsive>
         <div className="flex flex-col">
           {stores.map((store) => (
             <StoreCard key={store.id} store={store} />
           ))}
         </div>
-      </Section>
+      </Responsive>
       <Section header="Employees" headerAs="h2">
         <div className="grid grid-cols-fluid gap-6">
           {employees.map((employees) => (
