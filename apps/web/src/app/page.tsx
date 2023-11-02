@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import { Section } from 'ui/src/Section';
 import { Text } from 'ui/src/Text';
@@ -8,7 +8,7 @@ import { SEO } from 'utils/src/metadata/SEO';
 import CTA from '../components/home/CTA';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return SEO.generateMetadata({ title: 'Main Channel Homepage', description: '' });
+  return SEO.metadata({ title: 'Main Channel Homepage', description: '', robots: 'index, follow' });
 }
 
 export default async function HomePage() {
