@@ -6,7 +6,14 @@ import withPlaiceholder from '@plaiceholder/next';
 const nextConfig = {
   transpilePackages: ['ui', 'utils'],
   images: {
-    domains: ['media.graphassets.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.graphassets.com',
+        port: '',
+        pathname: '/*'
+      }
+    ]
   },
 };
 
