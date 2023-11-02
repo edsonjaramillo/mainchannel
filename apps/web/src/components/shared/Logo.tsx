@@ -10,21 +10,23 @@ type IconProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 export default function Logo({ as = 'link', className, ...rest }: IconProps) {
-  const classes = cn('w-fit', className);
+  const classes = cn(className);
   if (as === 'link') {
     return (
-      <Link href="/" aria-label="Home" className={classes} {...rest}>
-        <Icon />
+      <Link href="/" aria-label="Home" {...rest}>
+        <Icon className={classes} />
       </Link>
     );
   }
 
-  return <Icon />;
+  return <Icon className={classes} {...rest} />;
 }
 
-function Icon() {
+function Icon({ className }: IconProps) {
+  const classes = cn('block h-9 w-9', className);
+
   return (
-    <svg version="1.1" xmlSpace="preserve" className="block h-9 w-9" viewBox="0 0 379.51999 393.86667">
+    <svg version="1.1" xmlSpace="preserve" className={classes} viewBox="0 0 379.51999 393.86667">
       <g transform="matrix(1.3333333,0,0,-1.3333333,0,393.86667)">
         <g transform="scale(0.1)">
           <path
