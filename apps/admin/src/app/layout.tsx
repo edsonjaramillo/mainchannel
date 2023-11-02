@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter as NextFont } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
@@ -14,12 +14,16 @@ const font = NextFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Create Next App',
-  applicationName: 'Create Next App',
+  title: 'Main Channel Brewing Co',
+  applicationName: 'Main Channel Brewing Co',
+  icons: [],
+};
+
+export const viewport: Viewport = {
   colorScheme: 'light',
   themeColor: '#123b2d',
-  viewport: 'width=device-width, initial-scale=1',
-  icons: [],
+  initialScale: 1,
+  width: 'device-width',
 };
 
 type RootLayoutProps = { children: React.ReactNode };
