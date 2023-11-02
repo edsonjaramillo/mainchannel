@@ -8,7 +8,7 @@ import { Text } from '../Text';
 import { cn } from '../lib/tw';
 
 export const inputVariants = cva(
-  'bg-transparent appearance-none rounded border border-grayscale-500 bg-grayscale-50 pb-[1px] pt-[0.5px] text-grayscale-neutral-light-accessible',
+  'bg-transparent appearance-none rounded border border-grayscale-500 pb-[1px] pt-[0.5px] text-grayscale-neutral-light-accessible',
   {
     variants: {
       sizes: {
