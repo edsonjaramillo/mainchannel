@@ -11,8 +11,9 @@ import FormIcon from '../../components/forms/FormIcon';
 export async function generateMetadata(): Promise<Metadata> {
   return SEO.metadata({
     title: 'Contact Us',
-    description: 'Contact us for more information about our services.',
+    description: 'Contact us for more information about our beers and services.',
     robots: 'index, follow',
+    canonical: '/contact',
   });
 }
 

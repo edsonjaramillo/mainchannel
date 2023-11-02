@@ -3,13 +3,19 @@ import type { Metadata } from 'next';
 import { Anchor } from 'ui/src/Anchor';
 import { Heading } from 'ui/src/Heading';
 import { Responsive } from 'ui/src/Responsive';
+import { SEO } from 'utils/src/metadata/SEO';
 
 import ContactItemList from '../../components/forms/ContactItemList';
 import DonationsForm from '../../components/forms/DonationsForm';
 import FormIcon from '../../components/forms/FormIcon';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return;
+  return SEO.metadata({
+    title: 'Donations',
+    description: 'Donations form for Main Channel Brewing Company. Please fill out the form to request a donation.',
+    robots: 'index, follow',
+    canonical: '/donations',
+  });
 }
 
 export default function DonationsPage() {

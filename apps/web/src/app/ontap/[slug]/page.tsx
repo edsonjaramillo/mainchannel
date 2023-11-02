@@ -1,10 +1,30 @@
+import type { Metadata } from 'next';
+
 import { Responsive } from 'ui/src/Responsive';
 import { CMSClient } from 'utils/src/cms/CMSClient';
+import { SEO } from 'utils/src/metadata/SEO';
 
 import BeerOverview from '../../../components/ontap/BeerOverview';
 
 type RequiredParams = { slug: string };
 type PageProps = { params: RequiredParams };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const beer = await new CMSClient().getBeer(params.slug);
+  return SEO.metadata({
+    title: beer.name,
+    description: beer.description,
+    robots: 'index, follow',
+    openGraph: {
+      title: beer.name,
+      description: beer.description,
+      images: [beer.image.url],
+      type: 'website',
+      url: `https://www.mainchannelbrewing.com/ontap/${beer.slug}`,
+    },
+    canonical: `/ontap/${beer.slug}`,
+  });
+}
 
 export default async function BeerPage({ params }: PageProps) {
   const beer = await new CMSClient().getBeer(params.slug);

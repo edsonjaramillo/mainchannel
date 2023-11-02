@@ -8,7 +8,16 @@ import { SEO } from 'utils/src/metadata/SEO';
 import CTA from '../components/home/CTA';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return SEO.metadata({ title: 'Main Channel Homepage', description: '', robots: 'index, follow' });
+  const cms = new CMSClient();
+  const cta = await cms.getCTA();
+  const ourStory = await cms.getOurStory();
+
+  return SEO.metadata({
+    title: cta.header,
+    description: ourStory.description,
+    robots: 'index, follow',
+    canonical: '/',
+  });
 }
 
 export default async function HomePage() {

@@ -1,9 +1,21 @@
+import type { Metadata } from 'next';
+
 import { Section } from 'ui/src/Section';
 import { CMSClient } from 'utils/src/cms/CMSClient';
+import { SEO } from 'utils/src/metadata/SEO';
 import type { Product } from 'utils/src/types';
 
 import BeerCard from '../../components/ontap/BeerCard';
 import PageHeader from '../../components/shared/PageHeader';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return SEO.metadata({
+    title: 'On Tap',
+    description: 'See what beers are currently on tap at Main Channel Brewing Company.',
+    robots: 'index, follow',
+    canonical: '/ontap',
+  });
+}
 
 export default async function Page() {
   const beers = await new CMSClient().getBeers();

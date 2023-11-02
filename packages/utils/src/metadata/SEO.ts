@@ -6,7 +6,7 @@ type RequiredMetadata = {
   title: string;
   description: string;
   robots: 'index, follow' | 'noindex, nofollow';
-  canonical?: string;
+  canonical: string;
 } & Metadata;
 
 export class SEO {
