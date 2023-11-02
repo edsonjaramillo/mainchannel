@@ -6,7 +6,7 @@ import { Heading } from 'ui/src/Heading';
 import { Text, textVariants } from 'ui/src/Text';
 import { cn } from 'ui/src/lib/tw';
 import { Format } from 'utils/src/format/Format';
-import type { CMSImage, Store, StoreImages } from 'utils/src/types';
+import type { Store, StoreImages } from 'utils/src/types';
 
 import { useModal } from '../../context/ModalContext';
 import { ModalImage } from '../shared/Modal';
@@ -20,7 +20,7 @@ export default function StoreCard({ store }: StoreProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-10">
+      <section id={store.slug} className="grid grid-cols-1 gap-6 py-16 md:grid-cols-10">
         <div className="flex flex-col gap-2 md:col-span-7 lg:col-span-8">
           <Heading as="h2">{store.name}</Heading>
           <Text as="p" textColor="gray">
@@ -60,7 +60,7 @@ export default function StoreCard({ store }: StoreProps) {
             </a>
           </AsideSection>
         </div>
-      </div>
+      </section>
     </>
   );
 }

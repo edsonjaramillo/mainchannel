@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { Heading } from 'ui/src/Heading';
 import { Text } from 'ui/src/Text';
-import { CMSImage, Employee } from 'utils/src/types';
+import { Employee } from 'utils/src/types';
 
 import { useModal } from '../../context/ModalContext';
 import { ModalImage } from '../shared/Modal';
