@@ -32,7 +32,7 @@ type RootLayoutProps = { children: React.ReactNode };
 export default function RootLayout({ children }: RootLayoutProps) {
   const htmlClasses = cn(
     font.variable,
-    'scrollbar-thin scrollbar-track-background-900 scrollbar-thumb-primary scroll-smooth',
+    'scrollbar-track-background-900 scroll-smooth scrollbar-thin scrollbar-thumb-primary',
   );
 
   return (
