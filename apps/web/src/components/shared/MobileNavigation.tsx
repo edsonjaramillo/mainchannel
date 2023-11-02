@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { Responsive } from 'ui/src/Responsive';
 
 import { useMobileMenu } from '../../context/MobileMenuContext';
