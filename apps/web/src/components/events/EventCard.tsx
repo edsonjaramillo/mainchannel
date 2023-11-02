@@ -1,8 +1,8 @@
 'use client';
 
-import { Button, buttonVariants } from 'ui/src/Button';
-import { Heading } from 'ui/src/Heading';
-import { Text } from 'ui/src/Text';
+import { Button } from 'ui/src/Button';
+import { Heading, headingVariants } from 'ui/src/Heading';
+import { Text, textVariants } from 'ui/src/Text';
 import { cn } from 'ui/src/lib/tw';
 import { DatetimeFmt } from 'utils/src/format/DatetimeFmt';
 import type { Address, Event } from 'utils/src/types';
@@ -24,7 +24,7 @@ export default function EventCard({ event }: EventProps) {
   const details = `${time} - ${locationName}`;
 
   return (
-    <div className="group/event flex rounded p-3 transition-colors duration-base hover:bg-grayscale-200">
+    <div id={event.id} className="group/event flex rounded p-3 transition-colors duration-base hover:bg-grayscale-200">
       <div className="flex w-20 flex-col gap-1">
         <Heading as="span" size="3" className={headerClass}>
           {DatetimeFmt.getMMDD(event.startTime)}
@@ -56,41 +56,64 @@ export default function EventCard({ event }: EventProps) {
 type MoreInfoEventProps = {
   event: Event;
 };
+
 function MoreInfoEvent({ event }: MoreInfoEventProps) {
   const address = event.isExternal === false ? event.store.address : event.extAddress;
-  const buttonCls = buttonVariants({ width: 'full', size: 'large' });
+  const moreDetailClass = cn('py-1" flex flex-col items-center justify-center rounded bg-grayscale-200 px-4');
+  const headerCls = headingVariants({ size: '3' });
+  const textCls = textVariants({ textColor: 'gray', size: '3' });
+  const start = event.startTime.replace('+', '%2B');
+  const end = event.endTime.replace('+', '%2B');
+
+  const downloadURL = encodeURI(
+    `/api/createics?id=${event.id}&title=${event.title}&start=${start}&end=${end}&address=${address.street} ${address.city} ${address.state} ${address.zipcode}`,
+  );
+
+  // why is the plus sign disappearing when encoded?
 
   return (
     <>
       <div className="flex flex-col gap-3">
-        <Heading as="span" size="4">
+        <Heading as="span" size="6">
           {event.title}
         </Heading>
-        <Text as="span" textColor="gray" size="3">
-          Location: {event.isExternal === false ? event.store.name : event.extLocation}
-        </Text>
-        <Text as="span" textColor="gray" size="3">
-          Start Time: {DatetimeFmt.getMMDD(event.startTime)} {DatetimeFmt.getTime(event.startTime)}
-        </Text>
-        <Text as="span" textColor="gray" size="3">
-          End Time: {DatetimeFmt.getMMDD(event.endTime)} {DatetimeFmt.getTime(event.endTime)}
-        </Text>
-        <a
-          className={cn(buttonCls, 'justify-between bg-[#1d64d8] hover:bg-[#1d64d8]')}
-          href={QueryfyGoogleMapsURL(address)}
-          rel="noopener nofollow noreferrer external"
-          target="_blank">
-          <GoogleMapsIcon />
-          Open in Google Maps
-        </a>
-        <a
-          className={cn(buttonCls, 'mr-auto justify-between bg-[#1d64d8] hover:bg-[#1d64d8]')}
-          href={QueryfyGoogleMapsURL(address)}
-          rel="noopener nofollow noreferrer external"
-          target="_blank">
-          <AppleMapsIcon />
-          Open in Apple Maps
-        </a>
+        <Seperator />
+        <div className="flex flex-col">
+          <span className={headerCls}>Location:</span>
+          <span className={textCls}>{event.isExternal === false ? event.store.name : event.extLocation}</span>
+        </div>
+        <div className="flex flex-col">
+          <span className={headerCls}>Start Time:</span>
+          <span className={textCls}>
+            {DatetimeFmt.getMMDD(event.startTime)} {DatetimeFmt.getTime(event.startTime)}
+          </span>
+        </div>
+        <div className="flex flex-col">
+          <span className={headerCls}>End Time:</span>
+          <span className={textCls}>
+            {DatetimeFmt.getMMDD(event.endTime)} {DatetimeFmt.getTime(event.endTime)}
+          </span>
+        </div>
+        <Seperator />
+        <div className="flex justify-between">
+          <a
+            className={moreDetailClass}
+            href={GetMapsURL(address, 'google')}
+            rel="noopener nofollow noreferrer external"
+            target="_blank">
+            <GoogleMapsIcon />
+          </a>
+          <a href={downloadURL} download>
+            <CaldendarIcon date={event.startTime} />
+          </a>
+          <a
+            className={moreDetailClass}
+            href={GetMapsURL(address, 'apple')}
+            rel="noopener nofollow noreferrer external"
+            target="_blank">
+            <AppleMapsIcon />
+          </a>
+        </div>
       </div>
     </>
   );
@@ -183,11 +206,45 @@ function AppleMapsIcon() {
   );
 }
 
-function QueryfyGoogleMapsURL(address: Address) {
-  const baseUrl = new URL('https://www.google.com/maps/search/?api=1');
+type CalendarProps = {
+  date: string;
+};
+function CaldendarIcon({ date }: CalendarProps) {
+  const now = new Date(date);
+  const month = now.toLocaleDateString('default', { month: 'short' });
+  const dayOfWeek = now.toLocaleDateString('default', { day: '2-digit' });
+
+  return (
+    <div className="flex flex-col items-center justify-center rounded bg-grayscale-200 px-4 py-1">
+      <Heading as="span" size="1" className="text-alert-error">
+        {month}
+      </Heading>
+      <Text as="span" textColor="gray" size="1">
+        {dayOfWeek}
+      </Text>
+    </div>
+  );
+}
+
+type MapSource = 'google' | 'apple';
+
+function GetMapsURL(address: Address, source: MapSource) {
   const { street, city, state, zipcode } = address;
   const query = `${street} ${city} ${state} ${zipcode}`;
-  baseUrl.searchParams.append('query', query);
-  console.log(baseUrl.toString());
-  return baseUrl.toString();
+  switch (source) {
+    case 'google':
+      const googleURL = new URL('https://www.google.com/maps/search/?api=1');
+      googleURL.searchParams.append('query', query);
+      return googleURL.href;
+    case 'apple':
+      const baseUrl = new URL('https://maps.apple.com/?api=1');
+      baseUrl.searchParams.append('address', query);
+      return baseUrl.href;
+    default:
+      throw new Error(`Map source ${source} is not supported.`);
+  }
+}
+
+function Seperator() {
+  return <hr className="my-2 text-grayscale-300" />;
 }
