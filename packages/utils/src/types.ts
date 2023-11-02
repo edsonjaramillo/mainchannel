@@ -21,10 +21,11 @@ export type Store = {
 };
 
 export type CMSImage = {
+  id: string;
   url: string;
   width: number;
   height: number;
-  blurhash?: string;
+  blurDataUrl?: string;
   alt?: string;
 };
 

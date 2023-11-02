@@ -30,41 +30,72 @@ export class CMSClient {
   }
 
   async getBeers() {
-    const { products } = await this.gql.request<Res<Product[]>>(Query.getBeers);
+    const { products } = await this.gql.request<Res<Product[]>>(Query.getBeers, {
+      cache: 'no-cache',
+    });
 
     for (let i = 0; i < products.length; i++) {
-      products[i].image = await Blur.process(products[i].image);
+      if (!products[i].image.blurDataUrl) {
+        console.log(`Processing ${products[i].name} blur...`);
+        products[i].image = await Blur.process(products[i].image);
+      }
     }
 
     return products;
   }
 
   async getBeer(slug: string) {
-    const { product } = await this.gql.request<Res<Product>>(Query.getBeerBySlug, { variables: { slug } });
-    product.image = await Blur.process(product.image);
+    const { product } = await this.gql.request<Res<Product>>(Query.getBeerBySlug, {
+      variables: { slug },
+      cache: 'no-cache',
+    });
+
+    if (!product.image.blurDataUrl) {
+      console.log(`Processing ${product.name} blur...`);
+      product.image = await Blur.process(product.image);
+    }
+
     return product;
   }
 
-  //   async getStory() {
-  //     const { ourStories } = await this.gql.request<Res<OurStory[]>>(Query.getStory());
-  //     return ourStories.at(-1)!;
-  //   }
-
   async getStores() {
-    const { stores } = await this.gql.request<Res<Store[]>>(Query.getStores);
+    const { stores } = await this.gql.request<Res<Store[]>>(Query.getStores, {
+      cache: 'no-cache',
+    });
 
     for (let i = 0; i < stores.length; i++) {
-      stores[i].storeImages = await Blur.storeGallery(stores[i].storeImages);
+      if (!stores[i].storeImages.firstImage.blurDataUrl) {
+        console.log(`Processing ${stores[i].name} blur...`);
+        stores[i].storeImages.firstImage = await Blur.process(stores[i].storeImages.firstImage);
+      }
+
+      if (!stores[i].storeImages.secondImage.blurDataUrl) {
+        console.log(`Processing ${stores[i].name} blur...`);
+        stores[i].storeImages.secondImage = await Blur.process(stores[i].storeImages.secondImage);
+      }
+
+      if (!stores[i].storeImages.thirdImage.blurDataUrl) {
+        console.log(`Processing ${stores[i].name} blur...`);
+        stores[i].storeImages.thirdImage = await Blur.process(stores[i].storeImages.thirdImage);
+      }
+
+      if (!stores[i].storeImages.fourthImage.blurDataUrl) {
+        console.log(`Processing ${stores[i].name} blur...`);
+        stores[i].storeImages.fourthImage = await Blur.process(stores[i].storeImages.fourthImage);
+      }
     }
 
     return stores;
   }
 
   async getEmployees() {
-    const { employees } = await this.gql.request<Res<Employee[]>>(Query.getEmployees);
+    const { employees } = await this.gql.request<Res<Employee[]>>(Query.getEmployees, { cache: 'no-cache' });
 
     for (let i = 0; i < employees.length; i++) {
-      employees[i].image = await Blur.process(employees[i].image);
+      if (!employees[i].image.blurDataUrl) {
+        console.log(`Processing ${employees[i].name} blur...`);
+        employees[i].image = await Blur.process(employees[i].image);
+      }
     }
 
     return employees;
@@ -80,6 +111,25 @@ export class CMSClient {
       },
     });
     return createEvent;
+  }
+
+  async updateBlurDataURL(id: string, blur: string) {
+    const { updateAsset: blurDataUrl } = await this.gql.request<Res<string>>(Query.updateBlur, {
+      variables: {
+        id,
+        blurDataUrl: blur,
+      },
+    });
+
+    return { blurDataUrl };
+  }
+
+  async publishAsset(id: string) {
+    await this.gql.request<Res<any>>(Query.publishAsset, {
+      variables: {
+        id,
+      },
+    });
   }
 }
 

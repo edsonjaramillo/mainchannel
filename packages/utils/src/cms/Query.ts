@@ -5,7 +5,9 @@ export class Query {
         header
         subheader
         image {
+          id
           url
+          blurDataUrl
           width
           height
         }
@@ -40,22 +42,30 @@ export class Query {
         }
         storeImages {
           firstImage {
+            id
             url
+            blurDataUrl
             width
             height
           }
           secondImage {
+            id
             url
+            blurDataUrl
             width
             height
           }
           thirdImage {
+            id
             url
+            blurDataUrl
             width
             height
           }
           fourthImage {
+            id
             url
+            blurDataUrl
             width
             height
           }
@@ -77,9 +87,12 @@ export class Query {
         slug
         name
         image {
+          id
+          url
           url
           width
           height
+          blurDataUrl
         }
         description
         isYearRound
@@ -105,7 +118,9 @@ export class Query {
         slug
         name
         image {
+          id
           url
+          blurDataUrl
         }
         description
         isYearRound
@@ -159,7 +174,9 @@ export class Query {
         name
         position
         image {
+          id
           url
+          blurDataUrl
           width
           height
         }
@@ -178,6 +195,22 @@ export class Query {
           store: { connect: { id: $storeId } }
         }
       ) {
+        id
+      }
+    }
+  `;
+
+  static updateBlur = /* GraphQL */ `
+    mutation UpdateBlurDataUrl($id: ID!, $blurDataUrl: String!) {
+      updateAsset(where: { id: $id }, data: { blurDataUrl: $blurDataUrl }) {
+        blurDataUrl
+      }
+    }
+  `;
+
+  static publishAsset = /* GraphQL */ `
+    mutation PublishAsset($id: ID!) {
+      publishAsset(to: PUBLISHED, where: { id: $id }) {
         id
       }
     }
