@@ -11,30 +11,36 @@ import Form from 'ui/src/forms/Form';
 import { Label } from 'ui/src/forms/Label';
 import Textfield from 'ui/src/forms/Textfield';
 import type { APIResponse } from 'utils/src/API';
+import { Format } from 'utils/src/format/Format';
 
-import { contactFormSchema } from '../../validatiors/schemas';
+import { donationFormSchema } from '../../validatiors/schemas';
 
-export default function ContactForm() {
-  type formSchema = Output<typeof contactFormSchema>;
+export default function DonationForm() {
+  type formSchema = Output<typeof donationFormSchema>;
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<formSchema>({ resolver: valibotResolver(contactFormSchema) });
+  } = useForm<formSchema>({ resolver: valibotResolver(donationFormSchema) });
 
   async function onSubmit<T extends formSchema>(formData: T) {
-    toast.custom((t) => <Notification t={t} variant="loading" text="Sending message..." />, {
-      id: 'contact-form',
+    toast.custom((t) => <Notification t={t} variant="loading" text="Submitting form..." />, {
+      id: 'donation-form',
     });
 
-    const res = await fetch('/api/form/contact', {
+    const res = await fetch('/api/form/donation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: formData.name,
         email: formData.email,
-        phone: formData.phone,
+        location: formData.location,
+        date: Format.formatDateTime(formData.date),
+        abcnumber: formData.abcnumber,
+        taxid: Format.formatEIN(formData.taxid),
+        phone: Format.fmtPhoneNumber(formData.phone),
         message: formData.message,
       }),
     });
@@ -42,19 +48,19 @@ export default function ContactForm() {
     const data = (await res.json()) as APIResponse;
     if (data.status !== 'success') {
       toast.custom((t) => <Notification t={t} variant="error" text={data.message} />, {
-        id: 'contact-form',
+        id: 'donation-form',
       });
       return;
     }
 
     toast.custom((t) => <Notification t={t} variant="success" text={data.message} />, {
-      id: 'contact-form',
+      id: 'donation-form',
     });
   }
 
   function onError(_: FieldErrors<formSchema>) {
     toast.custom((t) => <Notification t={t} variant="error" text="Check form requirements." />, {
-      id: 'contact-form',
+      id: 'donation-form',
     });
   }
   return (
@@ -100,13 +106,45 @@ export default function ContactForm() {
           />
         </Form.Group>
         <Form.Group>
+          <Label htmlFor="date" error={errors.date} required>
+            Date of Event
+          </Label>
+          <Textfield.Input id="date" name="date" type="date" error={errors.date} {...register('date')} />
+        </Form.Group>
+        <Form.Group>
+          <Label htmlFor="abcnumber" error={errors.abcnumber} required>
+            ABC Number
+          </Label>
+          <Textfield.Input
+            id="abcnumber"
+            name="abcnumber"
+            type="text"
+            inputMode="numeric"
+            error={errors.abcnumber}
+            {...register('abcnumber')}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Label htmlFor="taxid" error={errors.taxid} required>
+            501(c)3 EIN
+          </Label>
+          <Textfield.Input
+            id="taxid"
+            name="taxid"
+            type="text"
+            inputMode="numeric"
+            error={errors.taxid}
+            {...register('taxid')}
+          />
+        </Form.Group>
+        <Form.Group>
           <Label htmlFor="message" error={errors.message} required>
             Message
           </Label>
           <Textfield.TextArea id="message" name="message" error={errors.message} rows={10} {...register('message')} />
         </Form.Group>
         <Button type="submit" className="ml-auto" size="large">
-          Send Message
+          Sumbit Application
         </Button>
       </Form.Root>
     </>
