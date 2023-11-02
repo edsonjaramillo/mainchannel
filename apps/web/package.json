@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "cross-env ANALYZE=true next build",
-    "build": "next build",
+    "build": "cross-env BUILDING=true next build",
     "clean": "rm -rf .next",
     "dev": "next dev",
     "lighthouse:dev": "lighthouse http://localhost:3000 --view",
