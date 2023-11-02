@@ -21,6 +21,13 @@ export class CMSClient {
 
   async getCTA() {
     const { callToActions } = await this.gql.request<Res<CallToAction[]>>(Query.getCTA);
+    for (let i = 0; i < callToActions.length; i++) {
+      if (!callToActions[i].image.blurDataUrl) {
+        console.log(`Processing ${callToActions[i].header} blur...`);
+        callToActions[i].image = await Blur.process(callToActions[i].image);
+      }
+    }
+
     return callToActions.at(-1)!;
   }
 
@@ -31,7 +38,7 @@ export class CMSClient {
 
   async getBeers() {
     const { products } = await this.gql.request<Res<Product[]>>(Query.getBeers, {
-      cache: 'no-cache',
+      // cache: 'no-cache',
     });
 
     for (let i = 0; i < products.length; i++) {
@@ -47,7 +54,7 @@ export class CMSClient {
   async getBeer(slug: string) {
     const { product } = await this.gql.request<Res<Product>>(Query.getBeerBySlug, {
       variables: { slug },
-      cache: 'no-cache',
+      // cache: 'no-cache',
     });
 
     if (!product.image.blurDataUrl) {
@@ -60,7 +67,7 @@ export class CMSClient {
 
   async getStores() {
     const { stores } = await this.gql.request<Res<Store[]>>(Query.getStores, {
-      cache: 'no-cache',
+      // cache: 'no-cache',
     });
 
     for (let i = 0; i < stores.length; i++) {
