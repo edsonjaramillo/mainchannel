@@ -3,6 +3,7 @@ module.exports = {
   content: ['../../**/*.tsx'],
   theme: {
     colors: {
+      transparent: 'transparent',
       primary: {
         DEFAULT: '#123b2d',
         50: '#effaf4',
@@ -47,19 +48,19 @@ module.exports = {
       },
       alert: {
         success: {
-          DEFAULT: '#05620d',
+          DEFAULT: '#388e3c',
           accent: '#edffed',
         },
         error: {
-          DEFAULT: '#a21212',
+          DEFAULT: '#d32f2f',
           accent: '#fff1f1',
         },
         warning: {
-          DEFAULT: '#e26c00',
+          DEFAULT: '#f57c00',
           accent: '#fffbea',
         },
         info: {
-          DEFAULT: '#08539c',
+          DEFAULT: '#0288d1',
           accent: '#f0f7ff',
         },
       },
