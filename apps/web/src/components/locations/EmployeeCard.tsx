@@ -23,7 +23,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
           className="object-cover transition-all duration-base group-hover/employee:scale-110"
           fill
           placeholder="blur"
-          blurDataURL={employee.image.blurhash}
+          blurDataURL={employee.image.blurDataUrl}
         />
       </div>
       <div className="py-2">

@@ -17,9 +17,8 @@ export default function BeerCard({ product }: BeerCardProps) {
           className="z-0 object-cover transition-transform duration-base group-hover/beer-card:scale-110"
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder="blur"
-          blurDataURL={product.image.blurhash}
+          blurDataURL={product.image.blurDataUrl}
         />
       </div>
       <div>

@@ -105,10 +105,9 @@ function ImageGallery({ storeImages }: StoreImageProps) {
           src={storeImages.firstImage.url}
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="cursor-pointer object-cover"
           placeholder="blur"
-          blurDataURL={storeImages.firstImage.blurhash}
+          blurDataURL={storeImages.firstImage.blurDataUrl}
           onClick={() => openModal(<ModalImage image={storeImages.firstImage} />)}
         />
       </div>
@@ -118,9 +117,8 @@ function ImageGallery({ storeImages }: StoreImageProps) {
           alt=""
           fill
           className="cursor-pointer object-cover"
-          blurDataURL={storeImages.secondImage.blurhash}
+          blurDataURL={storeImages.secondImage.blurDataUrl}
           placeholder="blur"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           onClick={() => openModal(<ModalImage image={storeImages.secondImage} />)}
         />
       </div>
@@ -129,9 +127,8 @@ function ImageGallery({ storeImages }: StoreImageProps) {
           src={storeImages.thirdImage.url}
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="cursor-pointer object-cover"
-          blurDataURL={storeImages.thirdImage.blurhash}
+          blurDataURL={storeImages.thirdImage.blurDataUrl}
           placeholder="blur"
           onClick={() => openModal(<ModalImage image={storeImages.thirdImage} />)}
         />
@@ -141,9 +138,8 @@ function ImageGallery({ storeImages }: StoreImageProps) {
           src={storeImages.fourthImage.url}
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="cursor-pointer object-cover"
-          blurDataURL={storeImages.fourthImage.blurhash}
+          blurDataURL={storeImages.fourthImage.blurDataUrl}
           placeholder="blur"
           onClick={() => openModal(<ModalImage image={storeImages.fourthImage} />)}
         />

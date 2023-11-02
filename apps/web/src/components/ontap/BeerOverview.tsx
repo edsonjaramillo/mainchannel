@@ -62,10 +62,9 @@ export default function BeerOverview({ beer }: BeerOverviewProps) {
           alt=""
           fill
           className="object-cover"
-          priority
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder="blur"
-          blurDataURL={beer.image.blurhash}
+          priority
+          blurDataURL={beer.image.blurDataUrl}
         />
       </div>
       <div className="flex flex-col gap-4">

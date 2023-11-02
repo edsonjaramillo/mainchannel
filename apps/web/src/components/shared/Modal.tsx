@@ -54,7 +54,7 @@ export function ModalImage({ image }: ModalImageProps) {
       alt={image.alt}
       width={image.width}
       height={image.height}
-      blurDataURL={image.blurhash}
+      blurDataURL={image.blurDataUrl}
       placeholder="blur"
     />
   );
