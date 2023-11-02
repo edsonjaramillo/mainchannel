@@ -7,7 +7,7 @@ type SocialIconProps = React.SVGProps<SVGSVGElement> & {
 
 export function SocialIcon({ href, name, className, children, ...rest }: SocialIconProps) {
   const iconClass = cn(
-    'h-4 w-4 fill-grayscale-neutral-light-accessible transition-colors duration-base hover:fill-grayscale-900',
+    'h-5 w-5 fill-grayscale-neutral-light-accessible transition-colors duration-base hover:fill-grayscale-900',
     className,
   );
   return (

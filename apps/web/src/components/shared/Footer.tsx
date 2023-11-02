@@ -2,11 +2,14 @@ import { Anchor } from 'ui/src/Anchor';
 import { Heading } from 'ui/src/Heading';
 import { Responsive } from 'ui/src/Responsive';
 import { SocialIcons } from 'ui/src/icons/SocialIcons';
+import { CMSClient } from 'utils/src/cms/CMSClient';
 
 import { navigationLinks } from '../../resources/links';
 import Logo from './Logo';
 
-export default function Footer() {
+export default async function Footer() {
+  const locations = await new CMSClient().getStores();
+
   return (
     <footer className="bg-grayscale-100 py-9">
       <Responsive>
@@ -20,16 +23,18 @@ export default function Footer() {
             ))}
           </FooterSection>
           <FooterSection header="Company">
-            <FooterLink href="#">Example 5</FooterLink> <FooterLink href="#">Example 6</FooterLink>
-          </FooterSection>
-          <FooterSection header="Legal">
-            <FooterLink href="#">Example 3</FooterLink> <FooterLink href="#">Example 4</FooterLink>
+            {locations.map((location) => (
+              <FooterLink key={location.slug} href={`/locations/#${location.slug}`}>
+                {location.address.city}
+              </FooterLink>
+            ))}
           </FooterSection>
           <FooterSection header="Resources">
             <FooterLink href="/donations">Donations</FooterLink>
             <FooterLink href="https://ord.spoton.com/61081e4324b4c402ff9088fc#" external>
               Order Online
             </FooterLink>
+            <FooterLink href="/sitemap">Sitemap</FooterLink>
           </FooterSection>
         </nav>
         <div className="mt-16 flex flex-col items-center justify-between gap-6 xs:flex-row">
@@ -61,6 +66,7 @@ type FooterLinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
   external?: boolean;
   children?: React.ReactNode;
 };
+
 function FooterLink({ href, external, children }: FooterLinkProps) {
   if (external) {
     return (
