@@ -12,7 +12,7 @@ type CTAProps = {
 };
 
 export default function CTA({ cta }: CTAProps) {
-  const leftCl = cn('flex flex-col justify-center gap-4 px-8 md:ml-auto md:w-11/12 lg:max-w-[37rem]');
+  const leftCl = cn('flex h-96 flex-col justify-center gap-4 px-8 md:ml-auto md:h-auto md:w-11/12 lg:max-w-[37rem]');
   const primaryBtn = buttonVariants({ size: 'large', width: 'fit' });
   const secondaryBtn = cn(buttonVariants({ size: 'large', variant: 'none', width: 'fit' }), 'group/btn gap-1');
 
