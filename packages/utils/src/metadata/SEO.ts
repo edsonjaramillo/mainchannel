@@ -18,4 +18,44 @@ export class SEO {
       alternates: { canonical: opts.canonical },
     };
   }
+
+  static icons(): Metadata['icons'] {
+    const url = ENV.URL;
+    return [
+      {
+        rel: 'icon',
+        url: `${url}/favicon.ico`,
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        url: `${url}/apple-touch-icon.png`,
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        url: `${url}/favicon-32x32.png`,
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        url: `${url}/favicon-16x16.png`,
+      },
+      {
+        rel: 'manifest',
+        url: `${url}/site.webmanifest`,
+      },
+      {
+        rel: 'mask-icon',
+        url: `${url}/safari-pinned-tab.svg`,
+        color: '#123b2d',
+      },
+      {
+        rel: 'shortcut icon',
+        url: `${url}/favicon.ico`,
+      },
+    ];
+  }
 }
