@@ -10,6 +10,7 @@ export class Query {
           blurDataUrl
           width
           height
+          alt
         }
       }
     }
