@@ -1,5 +1,7 @@
 {
   "extends": "tsconfig/standard.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "jsx": "react"
+  },
   "exclude": ["dist", "build", "node_modules"]
 }
