@@ -4,7 +4,9 @@ import { Button } from 'ui/src/Button';
 import { Heading, headingVariants } from 'ui/src/Heading';
 import { Text, textVariants } from 'ui/src/Text';
 import { cn } from 'ui/src/lib/tw';
+import { ENV } from 'utils/src/env';
 import { DatetimeFmt } from 'utils/src/format/DatetimeFmt';
+import { EventJSONLD, JSONLD } from 'utils/src/metadata/JSONLD';
 import type { Address, Event } from 'utils/src/types';
 
 import { useModal } from '../../context/ModalContext';
@@ -24,32 +26,37 @@ export default function EventCard({ event }: EventProps) {
   const details = `${time} - ${locationName}`;
 
   return (
-    <div id={event.id} className="group/event flex rounded p-3 transition-colors duration-base hover:bg-grayscale-200">
-      <div className="flex w-20 flex-col gap-1">
-        <Heading as="span" size="3" className={headerClass}>
-          {DatetimeFmt.getMMDD(event.startTime)}
-        </Heading>
-        <Text as="span" textColor="gray" size="2" className="line-clamp-1">
-          {DatetimeFmt.getDayOfWeek(event.startTime)}
-        </Text>
+    <>
+      <JSONLD markup={EventJSONLD(event, ENV.URL)} />
+      <div
+        id={event.id}
+        className="group/event flex rounded p-3 transition-colors duration-base hover:bg-grayscale-200">
+        <div className="flex w-20 flex-col gap-1">
+          <Heading as="span" size="3" className={headerClass}>
+            {DatetimeFmt.getMMDD(event.startTime)}
+          </Heading>
+          <Text as="span" textColor="gray" size="2" className="line-clamp-1">
+            {DatetimeFmt.getDayOfWeek(event.startTime)}
+          </Text>
+        </div>
+        <div className="flex flex-col gap-1">
+          <Heading as="span" size="3" className={headerClass}>
+            {event.title}
+          </Heading>
+          <Text as="span" textColor="gray" size="2" className="line-clamp-1">
+            {details}
+          </Text>
+        </div>
+        <Button
+          variant="primary"
+          size="medium"
+          className="my-auto ml-auto"
+          type="button"
+          onClick={() => openModal(<MoreInfoEvent event={event} />)}>
+          More Info
+        </Button>
       </div>
-      <div className="flex flex-col gap-1">
-        <Heading as="span" size="3" className={headerClass}>
-          {event.title}
-        </Heading>
-        <Text as="span" textColor="gray" size="2" className="line-clamp-1">
-          {details}
-        </Text>
-      </div>
-      <Button
-        variant="primary"
-        size="medium"
-        className="my-auto ml-auto"
-        type="button"
-        onClick={() => openModal(<MoreInfoEvent event={event} />)}>
-        More Info
-      </Button>
-    </div>
+    </>
   );
 }
 
