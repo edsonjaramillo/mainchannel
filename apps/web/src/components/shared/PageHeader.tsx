@@ -14,7 +14,7 @@ export default function PageHeader({ text }: PageHeaderProps) {
         <Heading as="h1" size="9">
           {text}
         </Heading>
-        <Logo className="absolute right-[15%] top-1/2 block rotate-[25deg] scale-[9] opacity-40" as="icon" />
+        <Logo className="absolute right-[15%] top-1/2 block rotate-[25deg] scale-[8] opacity-40" as="icon" />
       </Responsive>
     </header>
   );
