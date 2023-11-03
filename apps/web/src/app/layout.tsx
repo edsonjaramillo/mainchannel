@@ -25,23 +25,6 @@ const url = new URL(ENV.URL);
 export const metadata: Metadata = {
   title: 'Main Channel Brewing Company',
   applicationName: 'Main Channel Brewing Company',
-  openGraph: {
-    title: 'Main Channel Brewing Company',
-    description: 'Main Channel Brewing Company Logo',
-    images: [
-      {
-        url: 'https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg',
-        alt: 'Main Channel Brewing Company Logo',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: 'website',
-    siteName: 'Main Channel Brewing Company',
-    emails: ['mainchannelbeer@gmail.com'],
-    url,
-    countryName: 'USA',
-  },
   icons: SEO.icons(),
   metadataBase: new URL(url),
 };

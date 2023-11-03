@@ -7,15 +7,36 @@ type RequiredMetadata = {
   description: string;
   robots: 'index, follow' | 'noindex, nofollow';
   canonical: string;
+  openGraph?: Metadata['openGraph'];
 } & Metadata;
+
+function defaultOG(url: string): Metadata['openGraph'] {
+  return {
+    title: 'Main Channel Brewing Company',
+    description: 'Main Channel Brewing Company Logo',
+    images: {
+      url: 'https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg',
+      alt: 'Main Channel Brewing Company Logo',
+      width: 1200,
+      height: 630,
+    },
+    type: 'website',
+    siteName: 'Main Channel Brewing Company',
+    emails: ['mainchannelbeer@gmail.com'],
+    url,
+    countryName: 'USA',
+  };
+}
 
 export class SEO {
   static async metadata(opts: RequiredMetadata): Promise<Metadata> {
+    const fullPath = `${ENV.URL}${opts.canonical}`;
     return {
       title: `${opts.title} | ${ENV.NAME}`,
       description: opts.description,
       robots: opts.robots,
-      alternates: { canonical: opts.canonical },
+      alternates: { canonical: fullPath },
+      openGraph: opts.openGraph ? opts.openGraph : defaultOG(fullPath),
     };
   }
 

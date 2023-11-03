@@ -20,14 +20,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: beer.name,
       description: beer.description,
-      images: [
-        {
-          url: beer.image.url,
-          alt: `Glass of ${beer.name} from Main Channel Brewing Company`,
-          width: beer.image.width,
-          height: beer.image.height,
-        },
-      ],
+      images: {
+        url: beer.image.url,
+        alt: `Glass of ${beer.name} from Main Channel Brewing Company`,
+        width: beer.image.width,
+        height: beer.image.height,
+      },
       type: 'website',
       url: `${url}/ontap/${beer.slug}`,
     },
