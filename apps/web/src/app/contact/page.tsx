@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { Anchor } from 'ui/src/Anchor';
 import { Heading } from 'ui/src/Heading';
 import { Responsive } from 'ui/src/Responsive';
 import { SEO } from 'utils/src/metadata/SEO';
@@ -26,10 +27,20 @@ export default function ContactPage() {
             <FormIcon />
             <Heading as="h1">Contact Us</Heading>
             <ContactItemList.Group>
+              <ContactItemList.Item>Have a question about our selection of craft beers? Ask away!</ContactItemList.Item>
               <ContactItemList.Item>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, repudiandae?
+                We appreciate your feedback! Share your brewery visit experiences or suggestions for improvement.
               </ContactItemList.Item>
-              <ContactItemList.Item>Lorem ipsum dolor sit amet consectetur.</ContactItemList.Item>
+              <ContactItemList.Item>
+                Looking to host a private party or corporate event at our brewery? Contact us for details on space
+                availability and packages.
+              </ContactItemList.Item>
+              <ContactItemList.Item>
+                We believe in giving back. For charity events and donations, fill out the form{' '}
+                <Anchor href="/donations" as="Next" inline>
+                  here.
+                </Anchor>
+              </ContactItemList.Item>
             </ContactItemList.Group>
           </div>
         </div>
