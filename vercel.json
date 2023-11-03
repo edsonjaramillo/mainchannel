@@ -1,9 +1,7 @@
 {
   "git": {
     "deploymentEnabled": {
-      "main": false,
-      "turbo": false,
-      "redesign": false
+      "main": true
     }
   }
 }
