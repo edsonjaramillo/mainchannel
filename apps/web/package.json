@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "7.45.4",
     "react-hot-toast": "2.4.1",
+    "schema-dts": "1.1.2",
     "ui": "workspace:*",
     "utils": "workspace:*",
     "valibot": "0.17.0",
