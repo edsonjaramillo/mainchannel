@@ -23,11 +23,11 @@ const font = NextFont({
 const url = new URL(ENV.URL);
 
 export const metadata: Metadata = {
-  title: 'Main Channel Brewing Co',
-  applicationName: 'Main Channel Brewing Co',
+  title: 'Main Channel Brewing Company',
+  applicationName: 'Main Channel Brewing Company',
   openGraph: {
-    title: 'Main Channel Brewing Co',
-    description: 'Main Channel Brewing Co Logo',
+    title: 'Main Channel Brewing Company',
+    description: 'Main Channel Brewing Company Logo',
     images: ['https://media.graphassets.com/COyXb8wS7eWHZSdoZdzg'],
     type: 'website',
     siteName: 'Main Channel Brewing Company',

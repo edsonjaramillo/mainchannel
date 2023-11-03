@@ -14,8 +14,8 @@ const font = NextFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Main Channel Brewing Co',
-  applicationName: 'Main Channel Brewing Co',
+  title: 'Main Channel Brewing Company',
+  applicationName: 'Main Channel Brewing Company',
   icons: [],
 };
 
