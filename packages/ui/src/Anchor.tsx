@@ -5,7 +5,7 @@ import { cn } from './lib/tw';
 
 type asComponent = 'Next' | 'external';
 
-export const anchorVariants = cva('underline-offset-4 transition-colors duration-base hover:text-grayscale-900', {
+export const anchorVariants = cva('underline-offset-2 transition-colors duration-base hover:text-grayscale-900', {
   variants: {
     textColor: {
       standard: 'text-grayscale-900',
