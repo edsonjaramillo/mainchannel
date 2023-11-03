@@ -121,6 +121,8 @@ export class Query {
         image {
           id
           url
+          width
+          height
           blurDataUrl
         }
         description
