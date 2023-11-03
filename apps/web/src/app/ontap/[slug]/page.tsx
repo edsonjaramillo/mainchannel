@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { Responsive } from 'ui/src/Responsive';
 import { CMSClient } from 'utils/src/cms/CMSClient';
+import { ENV } from 'utils/src/env';
 import { SEO } from 'utils/src/metadata/SEO';
 
 import BeerOverview from '../../../components/ontap/BeerOverview';
@@ -11,6 +12,7 @@ type PageProps = { params: RequiredParams };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const beer = await new CMSClient().getBeer(params.slug);
+  const url = ENV.URL;
   return SEO.metadata({
     title: beer.name,
     description: beer.description,
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: beer.description,
       images: [beer.image.url],
       type: 'website',
-      url: `https://www.mainchannelbrewing.com/ontap/${beer.slug}`,
+      url: `${url}/ontap/${beer.slug}`,
     },
     canonical: `/ontap/${beer.slug}`,
   });

@@ -4,6 +4,8 @@ import { Toaster } from 'react-hot-toast';
 
 import SkipToMainContent from 'ui/src/SkipToMainContent';
 import { cn } from 'ui/src/lib/tw';
+import { ENV } from 'utils/src/env';
+import { SEO } from 'utils/src/metadata/SEO';
 
 import DesktopNavigation from '../components/shared/DesktopNavigation';
 import Footer from '../components/shared/Footer';
@@ -18,6 +20,8 @@ const font = NextFont({
   variable: '--font-next',
 });
 
+const url = new URL(ENV.URL);
+
 export const metadata: Metadata = {
   title: 'Main Channel Brewing Co',
   applicationName: 'Main Channel Brewing Co',
@@ -28,11 +32,11 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Main Channel Brewing Company',
     emails: ['mainchannelbeer@gmail.com'],
-    url: `https://www.mainchannelbrewing.com/`,
+    url,
     countryName: 'USA',
   },
-  metadataBase: new URL('https://www.mainchannelbrewing.com/'),
-  icons: [],
+  icons: SEO.icons(),
+  metadataBase: new URL(url),
 };
 
 export const viewport: Viewport = {

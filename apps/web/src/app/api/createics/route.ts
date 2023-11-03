@@ -1,5 +1,7 @@
 import { createEvent } from 'ics';
 
+import { ENV } from 'utils/src/env';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get('id');
@@ -8,6 +10,7 @@ export async function GET(request: Request) {
   const endTime = new Date(searchParams.get('end').replace('%2B', '+'));
   const address = searchParams.get('address');
 
+  const url = ENV.URL;
   try {
     const event = createEvent({
       uid: id,
@@ -21,7 +24,7 @@ export async function GET(request: Request) {
       ],
       end: [endTime.getFullYear(), endTime.getMonth() + 1, endTime.getDate(), endTime.getHours(), endTime.getMinutes()],
       location: address,
-      url: `https://www.mainchannelbrewing.com/events#${id}`,
+      url: `${url}/events#${id}`,
       status: 'CONFIRMED',
     });
 

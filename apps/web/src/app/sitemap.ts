@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next';
 
 import { CMSClient } from 'utils/src/cms/CMSClient';
+import { ENV } from 'utils/src/env';
 
 import { navigationLinks } from '../resources/links';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const URL = 'https://mainchannelbrewing.com';
+  const URL = ENV.URL;
   const now = new Date();
   const coreLinks = navigationLinks.map((link) => ({
     url: `${URL}${link.href}`,
