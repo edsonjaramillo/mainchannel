@@ -12,19 +12,6 @@ const nextConfig = {
         hostname: 'media.graphassets.com',
       }
     ]
-  },
-  async headers() {
-    return [
-      {
-        source: '/site.webmanifest',
-        headers: [
-          {
-            'key': 'Access-Control-Allow-Origin',
-            'value': '*'
-          }
-        ]
-      }
-    ];
   }
 };
 
