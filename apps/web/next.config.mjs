@@ -10,11 +10,22 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'media.graphassets.com',
-        port: '',
-        pathname: '/*'
       }
     ]
   },
+  async headers() {
+    return [
+      {
+        source: '/site.webmanifest',
+        headers: [
+          {
+            'key': 'Access-Control-Allow-Origin',
+            'value': '*'
+          }
+        ]
+      }
+    ];
+  }
 };
 
 // export default withBundleAnalyzer(nextConfig)
