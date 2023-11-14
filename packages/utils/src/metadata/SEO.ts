@@ -40,8 +40,7 @@ export class SEO {
     };
   }
 
-  static icons(): Metadata['icons'] {
-    const url = ENV.URL;
+  static icons(url: string): Metadata['icons'] {
     return [
       {
         rel: 'icon',

@@ -20,12 +20,12 @@ const font = NextFont({
   variable: '--font-next',
 });
 
-const url = new URL(ENV.URL);
+const url = ENV.URL;
 
 export const metadata: Metadata = {
   title: 'Main Channel Brewing Company',
   applicationName: 'Main Channel Brewing Company',
-  icons: SEO.icons(),
+  icons: SEO.icons(url),
   metadataBase: new URL(url),
 };
 
