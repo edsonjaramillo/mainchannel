@@ -21,6 +21,7 @@ export default function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<formSchema>({ resolver: valibotResolver(contactFormSchema) });
 
   async function onSubmit<T extends formSchema>(formData: T) {
@@ -40,6 +41,7 @@ export default function ContactForm() {
     });
 
     const data = (await res.json()) as APIResponse;
+
     if (data.status !== 'success') {
       toast.custom((t) => <Notification t={t} variant="error" text={data.message} />, {
         id: 'contact-form',
@@ -50,6 +52,8 @@ export default function ContactForm() {
     toast.custom((t) => <Notification t={t} variant="success" text={data.message} />, {
       id: 'contact-form',
     });
+
+    reset();
   }
 
   function onError(_: FieldErrors<formSchema>) {

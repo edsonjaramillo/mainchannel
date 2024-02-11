@@ -21,7 +21,7 @@ export default function DonationForm() {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm<formSchema>({ resolver: valibotResolver(donationFormSchema) });
 
@@ -46,6 +46,7 @@ export default function DonationForm() {
     });
 
     const data = (await res.json()) as APIResponse;
+
     if (data.status !== 'success') {
       toast.custom((t) => <Notification t={t} variant="error" text={data.message} />, {
         id: 'donation-form',
@@ -56,6 +57,8 @@ export default function DonationForm() {
     toast.custom((t) => <Notification t={t} variant="success" text={data.message} />, {
       id: 'donation-form',
     });
+
+    reset();
   }
 
   function onError(_: FieldErrors<formSchema>) {
